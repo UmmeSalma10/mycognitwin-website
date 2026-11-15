@@ -1,0 +1,1092 @@
+<title>Umme Salma Website</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: her current site's palette and type (soft blue canvas, navy ink, teal + coral), text left with a profile card on the right, a black-and-white moving banner, and a recruiter story built from clear boxes. */
+:root{
+  --canvas:#F8F9FC; --paper:#FFFFFF; --ink:#111D3B; --ink-2:#25314F; --muted:#515D74; --line:#D8DFEB;
+  --mist:#EAF0FA; --teal:#166F7C; --teal-soft:#DDEEF0; --coral:#C64230; --coral-soft:#F8E2D6;
+  --sage:#E4EEE9; --lavender:#E8E5F3; --band-bg:#111D3B; --band-fg:#FFFFFF; --band-dot:#F39A8A;
+  --on-teal:#FFFFFF; --cta:#2456A6; --cta-hover:#1B4689; --on-cta:#FFFFFF; --nn:#1E4E8C; --nn-line:.34; --nn-dot:.62; --shadow:0 24px 54px rgba(17,29,59,.11); --shadow-soft:0 12px 32px rgba(17,29,59,.08);
+  --serif:"Instrument Serif", Georgia, "Times New Roman", serif;
+  --sans:"DM Sans", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --canvas:#0E1525; --paper:#162036; --ink:#EEF2FA; --ink-2:#D4DBEA; --muted:#A3AEC4; --line:#28344D;
+  --mist:#1A2540; --teal:#62C2CD; --teal-soft:#173A40; --coral:#FF8E7C; --coral-soft:#3A2622;
+  --sage:#1B2E2A; --lavender:#24233F; --band-bg:#EEF2FA; --band-fg:#111D3B; --band-dot:#C64230;
+  --on-teal:#0E1525; --cta:#8DB8F5; --cta-hover:#A9CBFA; --on-cta:#0E1525; --nn:#62C2CD; --nn-line:.28; --nn-dot:.45; --shadow:0 24px 54px rgba(0,0,0,.35); --shadow-soft:0 12px 32px rgba(0,0,0,.3); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --canvas:#0E1525; --paper:#162036; --ink:#EEF2FA; --ink-2:#D4DBEA; --muted:#A3AEC4; --line:#28344D;
+  --mist:#1A2540; --teal:#62C2CD; --teal-soft:#173A40; --coral:#FF8E7C; --coral-soft:#3A2622;
+  --sage:#1B2E2A; --lavender:#24233F; --band-bg:#EEF2FA; --band-fg:#111D3B; --band-dot:#C64230;
+  --on-teal:#0E1525; --cta:#8DB8F5; --cta-hover:#A9CBFA; --on-cta:#0E1525; --nn:#62C2CD; --nn-line:.28; --nn-dot:.45; --shadow:0 24px 54px rgba(0,0,0,.35); --shadow-soft:0 12px 32px rgba(0,0,0,.3); color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--canvas);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--canvas)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.in{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+p{margin:0}
+h1,h2,h3{margin:0}
+.eyebrow{display:inline-block;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+h2{font:400 clamp(34px,4.6vw,52px)/1.05 var(--serif);letter-spacing:-.01em;text-wrap:balance;margin-bottom:14px}
+h2 em,h1 em{font-style:italic;color:var(--coral)}
+h3{font:600 19px/1.3 var(--sans)}
+.sub{color:var(--muted);max-width:60ch;font-size:17px}
+.section{padding-block:84px}
+.section.tint{background:var(--mist)}
+.head{margin-bottom:36px}
+
+/* Ventures: second card + dream badge */
+.venture+.venture{margin-top:18px}
+.venture.dream .logo{background:var(--sage)}
+.venture .soon{display:inline-block;border:1.5px dashed var(--line);color:var(--muted);font-weight:600;font-size:14px;padding:10px 16px;border-radius:999px;white-space:nowrap}
+
+/* Pip's Corner */
+.pips-hero{padding-block:64px 24px}
+.pips-hero .in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center}
+.pips-hero h1{font:400 clamp(44px,7vw,84px)/1 var(--serif);letter-spacing:-.02em;margin-bottom:18px}
+.pips-hero h1 em{color:var(--coral)}
+.pip-big{width:clamp(150px,22vw,240px);height:auto;animation:pipbob 2.4s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes pipbob{50%{transform:translateY(-10px) rotate(-3deg)}}
+.pip-say{display:inline-block;background:var(--paper);border:2px solid var(--ink);border-radius:18px 18px 18px 4px;padding:10px 14px;font-weight:600;font-size:15px;margin-bottom:18px;box-shadow:4px 4px 0 #F2C230}
+.tgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.tcard{position:relative;display:flex;flex-direction:column;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:22px;text-decoration:none;color:inherit;min-width:0;transition:transform .2s cubic-bezier(.3,1.6,.6,1),box-shadow .2s;overflow:hidden}
+.tcard:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:var(--shadow-soft)}
+.tcard .em{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;font-size:36px;background:var(--tc);margin-bottom:6px;transition:transform .3s}
+.tcard:hover .em{transform:scale(1.12) rotate(-8deg)}
+.tcard .kind{font:700 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tcard h3{font:400 28px/1.05 var(--serif)}
+.tcard p{color:var(--muted);font-size:15px}
+.tcard .tplay{margin-top:auto;padding-top:10px;font-weight:700;color:var(--teal)}
+.tcard.big{grid-column:span 2;background:linear-gradient(135deg,var(--paper),var(--mist))}
+.tcard.soon{border-style:dashed;background:transparent}
+.t1{--tc:#FDECA6}.t2{--tc:#D7ECFF}.t3{--tc:#FFE0EC}.t4{--tc:#E4E1D8}.t5{--tc:#D9F2EC}.t6{--tc:#FFE4CF}.t7{--tc:#E8E1FA}.t8{--tc:#F6E3C8}.t9{--tc:#DDF4D9}.t10{--tc:#E3ECFF}
+:root[data-dark="1"] .tcard .em{filter:saturate(.9) brightness(.92)}
+.pips-legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.pips-legend button{font:600 14px/1 var(--sans);border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:10px 14px;border-radius:999px;cursor:pointer}
+.pips-legend button[aria-pressed="true"]{background:var(--ink);color:var(--canvas);border-color:var(--ink)}
+@media (max-width:1000px){.tgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.tgrid{grid-template-columns:minmax(0,1fr)}.tcard.big{grid-column:auto}.pips-hero .in{grid-template-columns:minmax(0,1fr)}.pip-big{justify-self:center;order:-1;width:140px}}
+
+/* CV request dialog */
+dialog.cvd{border:0;border-radius:24px;padding:0;max-width:520px;width:calc(100% - 32px);background:var(--paper);color:var(--ink);box-shadow:var(--shadow)}
+dialog.cvd::backdrop{background:rgba(10,16,32,.55);backdrop-filter:blur(3px)}
+dialog.cvd form{box-shadow:none;border:0;grid-template-columns:minmax(0,1fr)}
+dialog.cvd .x{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:20px;cursor:pointer}
+dialog.cvd h2{font:400 34px/1.05 var(--serif)}
+
+/* "Okay, now what?" free tool feature */
+.onw{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:44px;box-shadow:var(--shadow-soft)}
+.onw .tag{display:inline-block;background:var(--coral-soft);color:var(--coral);font:700 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;border-radius:6px;transform:rotate(-2deg);margin-bottom:16px}
+.onw h2 em{color:var(--coral)}
+.onw .sub{margin:14px 0 24px}
+.onw-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ft{position:relative;display:flex;flex-direction:column;gap:2px;border-radius:20px;padding:16px 16px 14px;min-width:0;text-decoration:none;color:#1B1E2B;border:2px solid #1B1E2B;box-shadow:4px 4px 0 #1B1E2B;transition:transform .2s cubic-bezier(.3,1.6,.6,1),box-shadow .2s}
+.ft:nth-child(odd){transform:rotate(-1.2deg)}.ft:nth-child(even){transform:rotate(1.2deg)}
+.ft:hover{transform:translateY(-4px) rotate(0);box-shadow:6px 8px 0 #1B1E2B}
+.ft b{font:400 24px/1.1 var(--serif)}
+.ft small{font-size:14px;color:#3F4558}
+.ft .fe{font-size:34px;line-height:1;margin-bottom:6px;display:inline-block;transition:transform .3s}
+.ft:hover .fe{animation:wiggle .5s ease-in-out}
+@keyframes wiggle{25%{transform:rotate(-14deg) scale(1.15)}75%{transform:rotate(12deg) scale(1.15)}}
+.f1{background:#FFE58A}.f2{background:#FFC2D4}.f3{background:#B9E3FF}.f4{background:#CDEFC6}
+.ft.wide{grid-column:1/-1;flex-direction:row;align-items:center;gap:14px;background:#E3D9FF;transform:rotate(-.5deg)}
+.ft.wide .pipmini{width:56px;height:auto;flex:none;float:none;margin:0;animation:pipbob 2.4s ease-in-out infinite}
+.ft.wide b,.ft.wide small{display:block}
+.ft.wide .emos{font-size:20px;letter-spacing:2px;color:inherit;margin-top:4px}
+.ft.wide .go{margin-left:auto;width:42px;height:42px;border-radius:50%;background:#1B1E2B;color:#fff;display:grid;place-items:center;font-weight:700;flex:none}
+@media (prefers-reduced-motion:reduce){.ft,.ft:hover{transform:none}.ft:hover .fe{animation:none}}
+@media (max-width:860px){.onw{grid-template-columns:minmax(0,1fr);padding:28px 20px;gap:28px}}
+
+/* My story: neural network illustration */
+.twinart{margin:0;position:relative;aspect-ratio:1/1;width:100%;touch-action:none}
+.twinart::before{content:"";position:absolute;inset:6%;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--teal) 12%,transparent),transparent 70%)}
+.twinart canvas{position:relative;width:100%;height:100%;display:block;cursor:crosshair}
+@media (max-width:900px){.twinart{max-width:360px;margin:8px auto 0;order:2}}
+
+.shero .in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:40px;align-items:center}
+.nnart{margin:0;position:relative}
+.nnart::before{content:"";position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--teal) 14%,transparent),transparent 70%)}
+.nnart svg{position:relative;width:100%;height:auto;display:block}
+.nnl line{stroke:var(--nn);stroke-opacity:.22;stroke-width:1.2}
+.nnp{stroke:var(--coral);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:14 400;stroke-dashoffset:414;animation:nnpulse 4.5s linear infinite;opacity:.9}
+@keyframes nnpulse{to{stroke-dashoffset:0}}
+.nnn{fill:var(--paper);stroke:var(--nn);stroke-width:2.5}
+.nnc{fill:var(--coral);stroke:var(--paper);stroke-width:2}
+.glow{fill:url(#nnGlow);animation:nnglow 3s ease-in-out infinite}
+@keyframes nnglow{50%{opacity:.25}}
+@media (max-width:900px){.shero .in{grid-template-columns:minmax(0,1fr)}.nnart{max-width:300px;margin:8px auto 0;order:2}}
+@media (prefers-reduced-motion:reduce){.nnp,.glow{animation:none}.nnp{display:none}}
+
+/* Header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:color-mix(in srgb,var(--canvas) 90%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .in{display:flex;align-items:center;gap:22px;padding-block:14px}
+.brand{font:400 28px/1 var(--serif);text-decoration:none}
+.brand span{color:var(--coral)}
+nav.main{display:flex;gap:4px;margin-left:auto}
+nav.main a{text-decoration:none;color:var(--muted);font-weight:600;font-size:15px;padding:8px 14px;border-radius:999px}
+nav.main a[aria-current="page"]{color:var(--ink);background:var(--paper);box-shadow:inset 0 0 0 1px var(--line)}
+.theme{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);display:grid;place-items:center;cursor:pointer;flex:none}
+.theme:hover{transform:rotate(-15deg)}
+.theme .moon{display:none}
+:root[data-dark="1"] .theme .moon{display:block}
+:root[data-dark="1"] .theme .sun{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 15px/1 var(--sans);padding:15px 22px;border-radius:999px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.coral{background:var(--cta);color:var(--on-cta)}
+.btn.coral:hover{background:var(--cta-hover)}
+.btn.teal{background:var(--teal);color:var(--on-teal)}
+.btn.outline{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn.small{padding:11px 16px;font-size:14px}
+header .btn{padding:11px 18px;font-size:14px}
+
+/* Hero */
+.hero{padding-block:64px 80px}
+.hero .in{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
+.hero h1{font:400 clamp(46px,6.6vw,84px)/.98 var(--serif);letter-spacing:-.02em;text-wrap:balance;margin-bottom:22px}
+.hero .sub{margin-bottom:30px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.assure{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:28px;color:var(--muted);font-size:14px}
+.assure span{display:inline-flex;gap:8px;align-items:center}
+.assure svg{color:var(--teal);width:18px;height:18px}
+
+/* Profile card (photo on the right) */
+.pcard{background:var(--paper);border-radius:28px;box-shadow:var(--shadow);overflow:hidden;max-width:440px;justify-self:end;width:100%;border:1px solid var(--line)}
+.pcard .ph{position:relative;background:linear-gradient(160deg,var(--teal-soft),var(--coral-soft))}
+.pcard img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:50% 18%}
+.pcard .badge{position:absolute;left:16px;bottom:16px;background:var(--paper);color:var(--ink);font:600 13px/1 var(--sans);padding:9px 12px;border-radius:999px;display:flex;gap:8px;align-items:center;box-shadow:var(--shadow-soft)}
+.pcard .badge::before{content:"";width:8px;height:8px;border-radius:50%;background:#2BB673}
+.pcard .body{padding:24px 26px 20px;text-align:center}
+.pcard .nm{font:400 36px/1 var(--serif);margin-bottom:8px}
+.roles{height:24px;overflow:hidden;color:var(--teal);font-weight:600;font-size:15px}
+.roles span{display:block;transition:transform .5s ease,opacity .5s ease}
+.socials{display:flex;justify-content:center;gap:10px;margin-top:18px}
+.socials a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--ink);text-decoration:none;transition:background .15s,color .15s}
+.socials a:hover{background:var(--ink);color:var(--canvas)}
+.pcard .bar{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.pcard .bar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:18px 10px;font-weight:600;font-size:15px;text-decoration:none}
+.pcard .bar a+a{border-left:1px solid var(--line)}
+.pcard .bar a:hover{background:var(--mist)}
+
+/* Moving banner */
+.band{background:var(--band-bg);color:var(--band-fg);overflow:hidden;padding-block:22px;border-block:1px solid var(--band-bg)}
+.track{display:flex;width:max-content;animation:slide 48s linear infinite}
+.band:hover .track{animation-play-state:paused}
+.track ul{display:flex;list-style:none;margin:0;padding:0}
+.track li{display:flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap;font:400 clamp(22px,2.6vw,30px)/1 var(--serif)}
+.track li b{font:600 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.track li::after{content:"✦";color:var(--band-dot);font-size:18px}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.track{animation:none;width:auto;flex-wrap:wrap}.track ul+ul{display:none}.track ul{flex-wrap:wrap;row-gap:14px;padding-inline:16px}}
+
+/* Cards */
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card p{color:var(--muted);font-size:15px}
+.ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;color:var(--ink)}
+.ico.a{background:var(--teal-soft)}.ico.b{background:var(--coral-soft)}.ico.c{background:var(--sage)}.ico.d{background:var(--lavender)}
+.who{cursor:pointer;text-align:left;font:inherit;color:inherit}
+.who:hover{border-color:var(--teal)}
+.who .go{margin-top:auto;color:var(--teal);font-weight:600;font-size:14px}
+
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;position:relative}
+.path::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--line)}
+.stop{position:relative;padding-top:34px;padding-right:18px}
+.stop::before{content:"";position:absolute;top:0;left:0;width:20px;height:20px;border-radius:50%;background:var(--paper);border:5px solid var(--teal)}
+.stop:last-child::before{border-color:var(--coral)}
+.stop b{display:block;font:400 28px/1.1 var(--serif);margin-bottom:6px}
+.stop span{color:var(--muted);font-size:15px}
+
+.quote{padding-block:84px;text-align:center}
+.quote blockquote{font:italic 400 clamp(28px,3.6vw,44px)/1.25 var(--serif);margin:0 auto 20px;max-width:28ch;text-wrap:balance}
+.quote cite{font-style:normal;color:var(--muted);font-size:15px}
+.quote a{color:var(--teal);font-weight:600;margin-left:10px}
+
+.course{gap:12px}
+.course .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.stage{font:600 12px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;border-radius:999px;background:var(--teal-soft);color:var(--teal)}
+.stage.b{background:var(--coral-soft);color:var(--coral)}
+.stage.c{background:var(--sage);color:var(--ink-2)}
+.meta{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.course ul{margin:4px 0 6px;padding-left:18px;color:var(--muted);font-size:15px;display:grid;gap:4px}
+.course .btn{margin-top:auto;align-self:flex-start}
+.course.feature{background:var(--ink);color:var(--canvas);border-color:var(--ink)}
+.course.feature p,.course.feature ul,.course.feature .meta{color:color-mix(in srgb,var(--canvas) 75%,transparent)}
+.course.feature .btn.outline{border-color:var(--canvas);color:var(--canvas)}
+
+.pillar b{font:400 46px/1 var(--serif);color:var(--coral)}
+
+/* Form */
+.formwrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px;align-items:start}
+.ticks{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.ticks li{display:flex;gap:10px;align-items:flex-start}
+.ticks svg{color:var(--teal);margin-top:3px}
+.mail{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:24px;font-weight:600}
+.mail button{font:600 13px var(--sans);border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 12px;cursor:pointer}
+form{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:var(--shadow-soft);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+label{display:grid;gap:7px;font-size:14px;font-weight:600}
+input,select,textarea{font:inherit;font-weight:400;color:var(--ink);background:var(--canvas);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
+textarea{min-height:120px;resize:vertical}
+.full{grid-column:1/-1}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg label{display:flex;align-items:center;gap:8px;font-weight:500;border:1px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer;background:var(--canvas)}
+.seg input{width:auto;accent-color:var(--teal)}
+.seg label:has(input:checked){border-color:var(--teal);background:var(--teal-soft)}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:8px}
+legend{font-size:14px;font-weight:600;padding:0;margin-bottom:8px}
+.thanks{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:32px;display:grid;gap:10px;justify-items:start}
+.flash{animation:flash 1.2s ease}
+@keyframes flash{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--teal) 50%,transparent)}100%{box-shadow:0 0 0 18px transparent}}
+
+/* My story */
+.shero{padding-block:64px 72px}
+.shero .in{max-width:1180px}
+.shero .in > div{max-width:760px}
+.shero h1{font:400 clamp(42px,6vw,76px)/1 var(--serif);letter-spacing:-.02em;margin-bottom:20px;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.facts span{font-size:14px;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:7px 13px}
+.ai{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.aibox{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.aibox .step{font:600 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.aibox .place{font-size:14px;color:var(--muted);font-weight:600}
+.aibox p{color:var(--muted);font-size:15px}
+.aibox .chip{margin-top:auto;align-self:flex-start;font-size:13px;font-weight:600;padding:6px 11px;border-radius:999px;background:var(--mist)}
+.aibox:nth-child(1){border-top:5px solid var(--teal)}
+.aibox:nth-child(2){border-top:5px solid #3F8F9A}
+.aibox:nth-child(3){border-top:5px solid var(--coral)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:22px}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px}
+.stat b{display:block;font:400 44px/1 var(--serif);color:var(--coral);margin-bottom:8px;font-variant-numeric:tabular-nums}
+.stat span{font-size:14px;color:var(--muted)}
+
+.tl{display:grid;gap:14px}
+.row{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px 24px;display:grid;grid-template-columns:170px minmax(0,1fr);gap:24px}
+.row .when{font-weight:600;font-size:14px;color:var(--teal)}
+.row .org{color:var(--muted);font-size:15px;margin-top:2px}
+.row ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:15px;display:grid;gap:4px}
+.row .ai-tag{display:inline-block;margin-left:8px;vertical-align:middle;font:600 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;background:var(--coral-soft);color:var(--coral);padding:5px 8px;border-radius:999px}
+
+.conf{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:24px;align-items:center}
+.badgefig{margin:0;border-radius:26px;padding:clamp(12px,3vw,28px);background:radial-gradient(120% 90% at 30% 20%,color-mix(in srgb,var(--cta) 22%,var(--paper)) 0,var(--paper) 55%,color-mix(in srgb,var(--teal) 18%,var(--paper)) 100%);border:1px solid var(--line);box-shadow:var(--shadow-soft)}
+.badgefig img{display:block;width:100%;height:auto}
+.clist{display:grid;gap:12px}
+.citem{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px 20px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center}
+.citem .ico{width:44px;height:44px}
+.citem small{display:block;color:var(--muted);font-size:14px}
+
+.video{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none}
+.video .thumb{position:relative;aspect-ratio:16/9;background:var(--mist);display:grid;place-items:center}
+.video .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.play{position:relative;width:62px;height:62px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;box-shadow:var(--shadow-soft)}
+.play svg{fill:currentColor;stroke:none;margin-left:3px}
+.video .vb{padding:18px 20px;display:grid;gap:4px}
+.video small{color:var(--muted);font-size:14px}
+.video.ph .thumb{border-bottom:1px dashed var(--line)}
+.video.ph .play{background:var(--line);color:var(--muted)}
+
+.contact-box{background:var(--ink);color:var(--canvas);border-radius:28px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px;align-items:center}
+.contact-box h2{color:var(--canvas)}
+.contact-box p{color:color-mix(in srgb,var(--canvas) 78%,transparent)}
+.contact-box .btns{display:grid;gap:10px}
+.contact-box .btn.outline{border-color:var(--canvas);color:var(--canvas)}
+:root[data-dark="1"] .contact-box{background:linear-gradient(135deg,#1C2B4F,#13393F);color:var(--ink);border:1px solid var(--line)}
+:root[data-dark="1"] .contact-box h2{color:var(--ink)}
+:root[data-dark="1"] .contact-box p{color:var(--muted)}
+:root[data-dark="1"] .contact-box .btn.outline{border-color:var(--ink);color:var(--ink)}
+:root[data-dark="1"] .contact-box .mail{color:var(--ink)!important}
+.note{font-size:13px;color:color-mix(in srgb,var(--canvas) 70%,transparent);min-height:1.4em}
+
+footer{border-top:1px solid var(--line);background:var(--paper)}
+footer .top{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:32px;padding-block:48px 28px}
+footer h4{margin:0 0 12px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer ul a{text-decoration:none}
+footer ul a:hover{color:var(--teal)}
+footer .socials{justify-content:flex-start}
+footer .bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-block:20px 28px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+
+@media (max-width:1000px){
+  .hero .in,.formwrap,.contact-box,.conf{grid-template-columns:minmax(0,1fr)}
+  .pcard{justify-self:center}
+  .grid4,.stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  footer .top{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  footer .top>div:first-child{grid-column:1/-1}
+}
+@media (max-width:760px){
+  nav.main{display:none}
+  .theme{margin-left:auto}
+  .section{padding-block:60px}
+}
+@media (max-width:600px){
+  header .btn{display:none}
+  .grid4,.grid3,.grid2,.ai,form{grid-template-columns:minmax(0,1fr)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .path{grid-template-columns:minmax(0,1fr);gap:22px}
+  .path::before{left:9px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .stop{padding:0 0 0 38px}
+  .row{grid-template-columns:minmax(0,1fr);gap:6px}
+}
+header .mnav{display:none}
+@media (max-width:760px){
+  header .mnav{display:flex;gap:6px;overflow-x:auto;padding-block:0 12px}
+  .mnav a{flex:none;text-decoration:none;font-weight:600;font-size:14px;color:var(--muted);padding:7px 12px;border-radius:999px;border:1px solid var(--line)}
+  .mnav a[aria-current="page"]{color:var(--ink);background:var(--paper)}
+}
+
+
+.course.wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center;padding:30px;background:linear-gradient(135deg,color-mix(in srgb,var(--cta) 14%,var(--paper)),var(--paper) 55%,color-mix(in srgb,var(--teal) 12%,var(--paper)));border-color:color-mix(in srgb,var(--cta) 35%,var(--line))}
+.course.wide h3{font:400 clamp(28px,3vw,38px)/1.1 var(--serif)}
+.wide-l{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.wide-r{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.wide-r li{background:color-mix(in srgb,var(--paper) 85%,transparent);border:1px solid var(--line);border-radius:16px;padding:16px;font-size:14px;color:var(--muted);display:grid;gap:4px}
+.wide-r b{color:var(--ink);font-size:15px}
+.stage.new{background:var(--cta);color:var(--on-cta)}
+@media (max-width:760px){.course.wide{grid-template-columns:minmax(0,1fr)}.wide-r{grid-template-columns:minmax(0,1fr)}}
+/* Ventures */
+.venture{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:24px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:28px}
+.venture .logo{width:72px;height:72px;border-radius:20px;display:grid;place-items:center;background:var(--coral-soft);color:var(--coral)}
+.venture .logo svg{width:34px;height:34px}
+.venture .role{font-weight:600;color:var(--teal);font-size:14px;margin-top:4px}
+.venture p{color:var(--muted);margin-top:8px}
+.venture small{display:block;color:var(--muted);font-size:12px;margin-top:8px;text-align:center}
+@media (max-width:760px){.venture{grid-template-columns:minmax(0,1fr)}}
+/* Legal pages */
+.legal .lh{font:400 clamp(40px,5vw,60px)/1.05 var(--serif);margin-bottom:10px}
+.lbox{margin-top:28px;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:clamp(22px,4vw,40px);max-width:820px;display:grid;gap:8px}
+.lbox .lh2{font:600 17px/1.3 var(--sans);margin-top:16px}
+.lbox .lh2:first-child{margin-top:0}
+.lbox p{color:var(--muted);max-width:70ch}
+.lnote{margin-top:16px;font-size:14px;color:var(--muted);max-width:820px}
+/* Neural network background */
+#nnBg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.6}
+:root[data-dark="0"] body{background:radial-gradient(1200px 700px at 85% -10%,#E3ECFA 0,transparent 60%),radial-gradient(900px 600px at -10% 40%,#E6F2F3 0,transparent 60%),var(--canvas);background-attachment:fixed}
+header,main,footer{position:relative;z-index:1}
+header{z-index:15}
+.section.tint{background:color-mix(in srgb,var(--mist) 82%,transparent)}
+footer{background:color-mix(in srgb,var(--paper) 90%,transparent)}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10.5V16.5M8 7.6v.1M11.5 16.5v-6M11.5 13.2c0-1.7 1.2-2.7 2.6-2.7 1.5 0 2.4 1 2.4 2.7v3.3"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4l11.7 16H20L8.3 4H4zM4.5 20l6.3-6.9M19.5 4l-6.1 6.7"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M2.5 17a24 24 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24 24 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2zM22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8L20 10.7l-5.8 1.9L12 18.4l-1.9-5.8L4.3 10.7l5.8-1.9z"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></symbol>
+</svg>
+
+<canvas id="nnBg" aria-hidden="true"></canvas>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Umme Salma","jobTitle":"AI Literacy & Career Coach, Engineering & AI Enablement Leader","description":"AI literacy and career coach for students and professionals, with 15+ years in tech, AI research and AI enablement leadership.","address":{"@type":"PostalAddress","addressLocality":"Hamburg","addressCountry":"DE"},"sameAs":["https://www.linkedin.com/in/ummesalmaeiti","https://www.youtube.com/watch?v=8MvnE_1JOjo"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Dhaka"},{"@type":"CollegeOrUniversity","name":"Universiti Teknologi PETRONAS"}],"knowsAbout":["AI literacy","Generative AI","Prompt engineering","Responsible AI","Neural networks","Career coaching","Quality engineering","AI enablement"],"knowsLanguage":["en","bn","de","es"]}
+</script>
+<header>
+  <div class="in">
+    <a class="brand" href="#home">Umme Salma<span>.</span></a>
+    <nav class="main" aria-label="Main">
+      <a href="#home" data-view="home">Home</a>
+      <a href="#courses" data-view="home" data-sec="courses">Courses</a>
+      <a href="#story" data-view="story">My story</a><a href="#pips-corner" data-view="pips">Pip's Corner</a>
+      <a href="#book" data-view="home" data-sec="book">Contact</a>
+    </nav>
+    <button class="theme" type="button" id="themeBtn" aria-label="Switch between light and dark mode"><svg class="i sun"><use href="#i-sun"/></svg><svg class="i moon"><use href="#i-moon"/></svg></button>
+    <a class="btn coral" href="#book">Book a free call</a>
+  </div>
+  <div class="in mnav" aria-label="Main (mobile)">
+    <a href="#home" data-view="home">Home</a><a href="#courses" data-view="home" data-sec="courses">Courses</a><a href="#story" data-view="story">My story</a><a href="#pips-corner" data-view="pips">Pip's Corner</a><a href="#book" data-view="home" data-sec="book">Contact</a>
+  </div>
+</header>
+
+<main>
+<!-- ====================== HOME ====================== -->
+<div data-panel="home">
+  <section class="hero" id="home-top">
+    <div class="in">
+      <div>
+        <span class="eyebrow">AI literacy &amp; career coaching</span>
+        <h1>AI can feel big. Your first step can be <em>small.</em></h1>
+        <p class="sub">Yesterday we asked, <em>&ldquo;What is AI?&rdquo;</em> Today we ask, <em>&ldquo;What can we do with it?&rdquo;</em> Tomorrow we&rsquo;ll ask, <em>&ldquo;Okay, now what next?&rdquo;</em> My answer: AI is our cognitive twin. It thinks <strong>with</strong> you, not instead of you. And tomorrow&rsquo;s twin will be smarter, more logical and more powerful than ever, so the people who learn to think with it today will lead tomorrow. I&rsquo;m Umme Salma, an AI literacy and career coach with 15+ years in tech, from Samsung R&amp;D to leading AI enablement at Bauer Media Group. I help students and professionals use AI with logic and purpose, and find their next step.</p>
+        <div class="ctas">
+          <a class="btn coral" href="#book">Book your free 30-minute call</a>
+          <a class="btn outline" href="#start">Find where to start</a>
+        </div>
+      </div>
+      <aside class="pcard" aria-label="Profile card">
+        <div class="ph">
+          <img src="images/headshot.jpg" alt="Portrait of Umme Salma in a black blazer and glasses" width="720" height="899">
+          <span class="badge">Available for coaching</span>
+        </div>
+        <div class="body">
+          <p class="nm">Umme Salma</p>
+          <div class="roles" aria-live="off"><span data-roles>AI Literacy Coach</span></div>
+          <div class="socials">
+            <a href="https://www.linkedin.com/in/ummesalmaeiti" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i"><use href="#i-in"/></svg></a>
+            <a href="https://github.com/UmmeSalma10" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i"><use href="#i-gh"/></svg></a>
+            <a href="#" data-todo="X (Twitter)" aria-label="X (Twitter)"><svg class="i"><use href="#i-x"/></svg></a>
+            <a href="https://www.youtube.com/watch?v=8MvnE_1JOjo" target="_blank" rel="noopener" aria-label="YouTube"><svg class="i"><use href="#i-yt"/></svg></a>
+          </div>
+        </div>
+        <div class="bar">
+          <a href="#story"><svg class="i"><use href="#i-book"/></svg>My story</a>
+          <a href="#book"><svg class="i"><use href="#i-arrow"/></svg>Contact me</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="band" aria-label="Highlights">
+    <div class="track">
+      <ul>
+        <li><b>Experience</b>15+ years in tech</li>
+        <li><b>Master's</b>MSc IT, University of Dhaka</li>
+        <li><b>Research</b>AI at Universiti Teknologi PETRONAS</li>
+        <li><b>Research</b>Otto von Guericke University Magdeburg</li>
+        <li><b>Founder</b>AI Hackathon, Bauer Media Group</li>
+        <li><b>Trained</b>100+ editors to work with AI</li>
+        <li><b>Conference</b>United Nations AI Summit, Zurich</li>
+        <li><b>Conference</b>Product-Led Summit, Amsterdam</li>
+        <li><b>Conference</b>AI Media Leaders 2025, Hamburg</li>
+      </ul>
+      <ul aria-hidden="true">
+        <li><b>Experience</b>15+ years in tech</li>
+        <li><b>Master's</b>MSc IT, University of Dhaka</li>
+        <li><b>Research</b>AI at Universiti Teknologi PETRONAS</li>
+        <li><b>Research</b>Otto von Guericke University Magdeburg</li>
+        <li><b>Founder</b>AI Hackathon, Bauer Media Group</li>
+        <li><b>Trained</b>100+ editors to work with AI</li>
+        <li><b>Conference</b>United Nations AI Summit, Zurich</li>
+        <li><b>Conference</b>Product-Led Summit, Amsterdam</li>
+        <li><b>Conference</b>AI Media Leaders 2025, Hamburg</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="section" id="start">
+    <div class="in">
+      <div class="head"><span class="eyebrow">Where to start</span><h2>Which of these sounds like <em>you?</em></h2><p class="sub">Pick the one that fits best. It takes you to the course I'd suggest.</p></div>
+      <div class="grid4">
+        <button class="card who" type="button" data-to="AI Fundamentals"><span class="ico a"><svg class="i"><use href="#i-spark"/></svg></span><h3>I'm curious, but AI feels confusing</h3><p>Everyone talks about it. You want to finally understand it.</p><span class="go">Start with AI Fundamentals →</span></button>
+        <button class="card who" type="button" data-to="AI Tools for Study &amp; Work"><span class="ico b"><svg class="i"><use href="#i-book"/></svg></span><h3>I want to study or work smarter with AI</h3><p>You use ChatGPT a little and want to get real results.</p><span class="go">Try AI Tools for Study &amp; Work →</span></button>
+        <button class="card who" type="button" data-to="Career Launch in Tech"><span class="ico c"><svg class="i"><use href="#i-brief"/></svg></span><h3>I want a career in tech or AI</h3><p>A first job, a career change, or a move abroad.</p><span class="go">See Career Launch in Tech →</span></button>
+        <button class="card who" type="button" data-to="Workshop for a school or team"><span class="ico d"><svg class="i"><use href="#i-users"/></svg></span><h3>My class or team needs AI skills</h3><p>Schools, universities, NGOs and companies.</p><span class="go">Plan a workshop →</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="courses">
+    <div class="in">
+      <div class="head"><span class="eyebrow">Courses &amp; coaching</span><h2>Learn AI <em>step by step.</em></h2><p class="sub">Short online courses that build on each other. Click any course to send me your questions about it.</p></div>
+      <div class="grid3">
+        <article class="card course feature"><div class="top"><span class="stage">Start here</span><span class="meta">4 MODULES</span></div><h3>AI Fundamentals</h3><p>What AI is and how it works, explained without maths or code. Each module ends with a short quiz.</p><ul><li>What AI is, in plain words</li><li>How machines learn from data</li><li>How chatbots and LLMs work</li><li>Using AI responsibly</li></ul><button class="btn outline small" type="button" data-topic="AI Fundamentals">Ask about this course →</button></article>
+        <article class="card course"><div class="top"><span class="stage b">Next step</span><span class="meta">HANDS-ON</span></div><h3>AI Tools for Study &amp; Work</h3><p>Structured prompting with ChatGPT, Claude and Copilot.</p><ul><li>Writing good prompts</li><li>Research and summaries</li><li>Automating repetitive tasks</li></ul><button class="btn outline small" type="button" data-topic="AI Tools for Study &amp; Work">Ask about this course →</button></article>
+        <article class="card course"><div class="top"><span class="stage c">Go further</span><span class="meta">1:1 GUIDANCE</span></div><h3>Career Launch in Tech</h3><p>For a first job, a career change or a move abroad.</p><ul><li>Skills employers look for</li><li>CV, LinkedIn and a portfolio project</li><li>Interviews and working abroad</li></ul><button class="btn outline small" type="button" data-topic="Career Launch in Tech">Ask about this course →</button></article>
+        <article class="card course"><div class="top"><span class="stage c">Build</span><span class="meta">HACKATHON FORMAT</span></div><h3>Hands-on AI Projects</h3><p>Pick a real problem, build a simple AI tool step by step and present it. You finish with a portfolio project.</p><button class="btn outline small" type="button" data-topic="Hands-on AI Projects">Ask about this course →</button></article>
+        <article class="card course"><div class="top"><span class="stage b">Personal</span><span class="meta">FLEXIBLE</span></div><h3>1:1 Coaching</h3><p>Sessions shaped around your own questions: one AI tool, a project you're stuck on, or your next career move.</p><button class="btn outline small" type="button" data-topic="1:1 Coaching">Ask about this course →</button></article>
+        <article class="card course"><div class="top"><span class="stage">For groups</span><span class="meta">SCHOOLS · TEAMS</span></div><h3>Workshops for schools &amp; teams</h3><p>AI literacy workshops and AI hackathons, based on the programme I founded at Bauer Media Group.</p><button class="btn outline small" type="button" data-topic="Workshop for a school or team">Ask about this course →</button></article>
+        <article class="card course wide">
+          <div class="wide-l">
+            <div class="top"><span class="stage new">New · for tech professionals</span><span class="meta">INTERMEDIATE · HANDS-ON</span></div>
+            <h3>AI-Native Testing: build software you can trust</h3>
+            <p>Software is now written with AI, and it needs to be tested with AI too. Learn the workflows I used as Head of Quality Engineering, rebuilt for the AI era: let AI agents do the repetitive work while you decide what really matters.</p>
+            <button class="btn coral small" type="button" data-topic="AI-Native Testing">Ask about this course →</button>
+          </div>
+          <ul class="wide-r">
+            <li><b>AI pair-testing</b>Design test cases with Copilot, Claude and ChatGPT</li>
+            <li><b>Agents + Playwright</b>Automate real user journeys in hours, not weeks</li>
+            <li><b>Testing AI itself</b>Evals, hallucinations and guardrails for LLM apps</li>
+            <li><b>Ship with confidence</b>AI checks inside your CI/CD pipeline</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="okay-now-what">
+    <div class="in">
+      <div class="onw">
+        <div>
+          <span class="tag">Free fun corner</span>
+          <h2>Feeling bored or stuck? Let's talk with <em>Pip.</em></h2>
+          <p class="sub">Pip's Corner is my free fun corner for the days when everything feels like too much. Scribble a mess, vent to Pip, scream it out or let him make you laugh. No sign-up, nothing saved.</p>
+          <div class="ctas">
+            <a class="btn coral" href="#pips-corner">Pip's Corner</a>
+            <a class="btn outline" href="#book">Talk it through with me</a>
+          </div>
+        </div>
+        <div class="onw-tiles" aria-label="Games in Pip's Corner">
+          <a class="ft f1" href="tools/talk-to-pip.html"><span class="fe" aria-hidden="true">✏️</span><b>Scribble</b><small>Draw any mess, then crumple it</small></a>
+          <a class="ft f2" href="tools/talk-to-pip.html"><span class="fe" aria-hidden="true">💬</span><b>Vent box</b><small>Tell Pip everything, then burn it 🔥</small></a>
+          <a class="ft f3" href="tools/talk-to-pip.html"><span class="fe" aria-hidden="true">😱</span><b>Scream</b><small>Hold the button. Let go.</small></a>
+          <a class="ft f4" href="tools/talk-to-pip.html"><span class="fe" aria-hidden="true">😂</span><b>Make me laugh</b><small>A joke or a silly challenge</small></a>
+          <a class="ft wide" href="#pips-corner"><svg class="pipmini" viewBox="0 0 120 130" aria-hidden="true"><ellipse cx="60" cy="122" rx="34" ry="5" fill="currentColor" opacity=".12"/><path d="M20 108 Q14 40 60 32 Q106 40 100 108 Z" fill="#F2C230" stroke="#1B1E2B" stroke-width="3" stroke-linejoin="round"/><path d="M58 32 q-2 -14 8 -18" fill="none" stroke="#1B1E2B" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="13" r="5" fill="#E8604C" stroke="#1B1E2B" stroke-width="2.5"/><circle cx="46" cy="64" r="6" fill="#1B1E2B"/><circle cx="74" cy="64" r="6" fill="#1B1E2B"/><circle cx="48" cy="62" r="2" fill="#fff"/><circle cx="76" cy="62" r="2" fill="#fff"/><ellipse cx="36" cy="78" rx="6" ry="4" fill="#F28C8C" opacity=".7"/><ellipse cx="84" cy="78" rx="6" ry="4" fill="#F28C8C" opacity=".7"/><path d="M48 82 q12 12 24 0" fill="none" stroke="#1B1E2B" stroke-width="3" stroke-linecap="round"/></svg><span><b>…and more games</b><small class="emos" aria-label="Pop it, Pillow fight, Rock stack, Rain window, Feed Pip, Fortune cookie">🫧 🥊 🪨 🌧️ 🍕 🥠</small></span><span class="go" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="in">
+      <blockquote>“You don't need a perfect start. You need a first step and someone who has walked the road.”</blockquote>
+      <cite>Umme Salma</cite><a href="#story">Read my story →</a>
+    </div>
+  </section>
+
+  <section class="section" id="book">
+    <div class="in formwrap">
+      <div>
+        <span class="eyebrow">Free 30-minute call</span>
+        <h2>Let's find your <em>starting point.</em></h2>
+        <p class="sub">Tell me who you are and what you'd like to talk about. You leave our call with a clear first step, whether you work with me or not.</p>
+        <ul class="ticks">
+          <li><svg class="i"><use href="#i-check"/></svg>Free, no obligation</li>
+          <li><svg class="i"><use href="#i-check"/></svg>Online, in English or Bangla</li>
+          <li><svg class="i"><use href="#i-check"/></svg>I reply within two working days</li>
+        </ul>
+        <div class="mail"><span>Prefer email?</span><span id="mail1">[ email address ]</span><button type="button" data-copy="mail1">Copy</button></div>
+      </div>
+      <div>
+        <form id="bookForm" novalidate>
+          <label>Your name<input id="f-name" name="name" required autocomplete="name" placeholder="Your full name"></label>
+          <label>Email<input id="f-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
+          <label class="full">I am a…
+            <select id="f-who" name="who">
+              <option>Student</option>
+              <option>Working professional</option>
+              <option>Career changer</option>
+            </select>
+          </label>
+          <label class="full">What would you like to discuss?
+            <select id="f-topic" name="topic">
+              <option>AI Fundamentals</option>
+              <option>AI Tools for Study &amp; Work</option>
+              <option>Career Launch in Tech</option>
+              <option>Hands-on AI Projects</option>
+              <option>AI-Native Testing</option>
+              <option>1:1 Coaching</option>
+              <option>Workshop for a school or team</option>
+              <option>Free guide (PDF)</option>
+              <option>Free live session</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label class="full">Your message<textarea id="f-msg" name="message" placeholder="Tell me a little about your goals or questions."></textarea></label>
+          <div class="full"><button class="btn coral" type="submit" style="width:100%">Send my request</button></div>
+        </form>
+        <div class="thanks" id="bookThanks" hidden>
+          <h3>Thank you!</h3>
+          <p class="sub">Your request is in. I'll email you within two working days to find a time.</p>
+          <button class="btn outline small" type="button" id="again">Send another request</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ====================== PIP'S CORNER ====================== -->
+<div data-panel="pips-corner" hidden>
+  <section class="pips-hero">
+    <div class="in">
+      <div>
+        <span class="eyebrow">Free games · no sign-up · nothing saved</span>
+        <h1>Pip's <em>Corner.</em></h1>
+        <p class="sub">Bored, stuck or just had a long day? Pop some bubbles, punch a pillow, stack a few stones or let Pip cheer you up. Little games for big feelings, made with love.</p>
+      </div>
+      <div style="display:grid;justify-items:center">
+        <span class="pip-say">Hi, I'm Pip! Pick a game 👇</span>
+        <svg class="pip-big" viewBox="0 0 120 130" aria-hidden="true"><ellipse cx="60" cy="122" rx="34" ry="5" fill="currentColor" opacity=".12"/><path d="M20 108 Q14 40 60 32 Q106 40 100 108 Z" fill="#F2C230" stroke="#1B1E2B" stroke-width="3" stroke-linejoin="round"/><path d="M58 32 q-2 -14 8 -18" fill="none" stroke="#1B1E2B" stroke-width="3" stroke-linecap="round"/><circle cx="67" cy="13" r="5" fill="#E8604C" stroke="#1B1E2B" stroke-width="2.5"/><circle cx="46" cy="64" r="6" fill="#1B1E2B"/><circle cx="74" cy="64" r="6" fill="#1B1E2B"/><circle cx="48" cy="62" r="2" fill="#fff"/><circle cx="76" cy="62" r="2" fill="#fff"/><ellipse cx="36" cy="78" rx="6" ry="4" fill="#F28C8C" opacity=".7"/><ellipse cx="84" cy="78" rx="6" ry="4" fill="#F28C8C" opacity=".7"/><path d="M48 82 q12 12 24 0" fill="none" stroke="#1B1E2B" stroke-width="3" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="padding-top:24px">
+    <div class="in">
+      <div class="pips-legend" role="group" aria-label="Filter games">
+        <button type="button" data-f="all" aria-pressed="true">All games</button>
+        <button type="button" data-f="out">😤 Let it out</button>
+        <button type="button" data-f="calm">😌 Calm down</button>
+        <button type="button" data-f="smile">😄 Make me smile</button>
+        <button type="button" data-f="way">🧭 Find your way</button>
+      </div>
+      <div class="tgrid">
+        <a class="tcard t1 big" data-kind="out" href="tools/talk-to-pip.html"><span class="em" aria-hidden="true">🗣️</span><span class="kind">Let it out</span><h3>Talk to Pip</h3><p>Scribble a mess, vent in a chat with Pip, scream as loud as you like, or ask for a joke.</p><span class="tplay">Play →</span></a>
+        <a class="tcard t2" data-kind="out" href="tools/pop-it.html"><span class="em" aria-hidden="true">🫧</span><span class="kind">Let it out</span><h3>Pop it</h3><p>Endless bubble wrap. Pop, pop, pop. One bubble is hiding Pip.</p><span class="tplay">Play →</span></a>
+        <a class="tcard t3" data-kind="out" href="tools/pillow-fight.html"><span class="em" aria-hidden="true">🛏️</span><span class="kind">Let it out</span><h3>Pillow fight</h3><p>Punch the pillow as hard as you want and watch the feathers fly.</p><span class="tplay">Play →</span></a>
+        <a class="tcard t4" data-kind="calm" href="tools/rock-stack.html"><span class="em" aria-hidden="true">🪨</span><span class="kind">Calm down</span><h3>Rock stack</h3><p>Balance stones on top of each other. Slow and steady wins.</p><span class="tplay">Play →</span></a>
+        <a class="tcard t5" data-kind="calm" href="tools/rain-window.html"><span class="em" aria-hidden="true">🌧️</span><span class="kind">Calm down</span><h3>Rain window</h3><p>Listen to the rain, wipe the fog, and bet on the fastest raindrop.</p><span class="tplay">Play →</span></a>
+        <a class="tcard t6" data-kind="smile" href="tools/compliment-machine.html"><span class="em" aria-hidden="true">💌</span><span class="kind">Make me smile</span><h3>Pip's compliment machine</h3><p>Pull the lever, get a silly compliment. Send one to a friend.</p><span class="tplay">Play →</span></a>
+        <a class="tcard t7" data-kind="smile" href="tools/feed-pip.html"><span class="em" aria-hidden="true">🍕</span><span class="kind">Make me smile</span><h3>Feed Pip</h3><p>Pip is hungry. Feed him and watch his face. Careful with the chilli.</p><span class="tplay">Play →</span></a>
+        <a class="tcard t8" data-kind="calm" href="tools/worry-jar.html"><span class="em" aria-hidden="true">🫙</span><span class="kind">Calm down</span><h3>Worry jar</h3><p>Write a worry, drop it in the jar, give it a shake.</p><span class="tplay">Play →</span></a>
+        <a class="tcard t9" data-kind="smile" href="tools/fortune-cookie.html"><span class="em" aria-hidden="true">🥠</span><span class="kind">Make me smile</span><h3>Fortune cookie</h3><p>Crack it open for a funny fortune and your lucky numbers.</p><span class="tplay">Play →</span></a>
+        <a class="tcard t10 big" data-kind="way" href="tools/four-directions.html"><span class="em" aria-hidden="true">🧭</span><span class="kind">Find your way</span><h3>Four directions for you</h3><p>Seven quick questions, then four ideas for this week: learn, hobby, earn and recharge.</p><span class="tplay">Play →</span></a>
+        <div class="tcard soon" data-kind="all"><span class="em" aria-hidden="true" style="--tc:var(--mist)">✨</span><span class="kind">Coming soon</span><h3>More games on the way</h3><p>Pip is busy building new toys. Come back soon.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ====================== MY STORY ====================== -->
+<div data-panel="story" hidden>
+  <section class="shero">
+    <div class="in">
+      <div>
+        <span class="eyebrow">My story · Umme Salma</span>
+        <h1>AI researcher, engineering leader and <em>educator.</em></h1>
+        <p class="sub">My path into technology started with artificial intelligence: a master's thesis on machine learning, research on neural networks, and later a research role at a German university. For 15+ years since, I have brought that thinking into engineering teams and helped people work confidently with AI.</p>
+        <p class="sub" style="margin-top:14px">What drives me next is helping companies transform the way they work with AI. I'm most interested in roles where engineering leadership, AI enablement and strategic leadership meet: building strong teams, guiding them through change, and turning AI from an experiment into everyday value.</p>
+        <div class="ctas" style="margin-top:28px">
+          <button class="btn coral" type="button" data-cv><svg class="i"><use href="#i-file"/></svg>Request my CV</button>
+          <a class="btn outline" href="https://www.linkedin.com/in/ummesalmaeiti" target="_blank" rel="noopener">LinkedIn profile</a>
+        </div>
+              </div>
+      <figure class="twinart"><canvas id="twinCv" aria-label="Interactive cognitive twin: a woman's face made of dots. Moving over the human half sends dots across to build her AI twin."></canvas></figure>
+    </div>
+  </section>
+
+  <div class="band" aria-label="Highlights">
+    <div class="track">
+      <ul>
+        <li><b>Experience</b>15+ years in tech</li>
+        <li><b>Master's</b>AI thesis with Hidden Markov Models</li>
+        <li><b>Research</b>Neural networks, UTP Malaysia</li>
+        <li><b>Research Assistant</b>OVGU Magdeburg</li>
+        <li><b>Trained</b>100+ editors to work with AI</li>
+        <li><b>Founder</b>AI Hackathon &amp; AI Champions</li>
+        <li><b>Trained</b>50+ engineers to be AI-enabled</li>
+        <li><b>Delegate</b>United Nations AI Summit, Zurich</li>
+        <li><b>Conference</b>AI Media Leaders 2025, Hamburg</li>
+      </ul>
+      <ul aria-hidden="true">
+        <li><b>Experience</b>15+ years in tech</li>
+        <li><b>Master's</b>AI thesis with Hidden Markov Models</li>
+        <li><b>Research</b>Neural networks, UTP Malaysia</li>
+        <li><b>Research Assistant</b>OVGU Magdeburg</li>
+        <li><b>Trained</b>100+ editors to work with AI</li>
+        <li><b>Founder</b>AI Hackathon &amp; AI Champions</li>
+        <li><b>Trained</b>50+ engineers to be AI-enabled</li>
+        <li><b>Delegate</b>United Nations AI Summit, Zurich</li>
+        <li><b>Conference</b>AI Media Leaders 2025, Hamburg</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="section" id="ai-work">
+    <div class="in">
+      <div class="head"><span class="eyebrow">My AI journey</span><h2>AI has been part of my work <em>from the start.</em></h2><p class="sub">From my first thesis to leading AI adoption in industry.</p></div>
+      <div class="ai">
+        <div class="aibox"><h3>MSc thesis in AI</h3><span class="place">University of Dhaka, Bangladesh</span><p>Used Hidden Markov Models to detect the musical key of songs from audio.</p><span class="chip">Machine learning</span></div>
+        <div class="aibox"><h3>Neural networks for accessibility</h3><span class="place">Universiti Teknologi PETRONAS, Malaysia</span><p>Researched neural networks for adaptive interfaces for visually impaired users.</p><span class="chip">Neural networks</span></div>
+        
+        <div class="aibox"><h3>Leading AI adoption</h3><span class="place">Bauer Media Group, Hamburg</span><p>Founded the AI Hackathon and AI Champions network and trained 50+ engineers to work AI-enabled across four countries.</p><span class="chip">AI enablement</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="in">
+      <div class="head"><span class="eyebrow">Academic background</span><h2>Education &amp; <em>research.</em></h2></div>
+      <div class="tl">
+        <div class="row"><div class="when">Germany</div><div><h3>Research Assistant</h3><p class="org">Institute of Micro and Sensor Systems, Otto von Guericke University Magdeburg</p><ul><li>Supported experiments in micro and sensor systems: data collection, analysis and documentation.</li><li>Designed and tested prototype sensor components with senior researchers.</li></ul></div></div>
+        <div class="row"><div class="when">Malaysia</div><div><h3>Research Candidate, Artificial Intelligence</h3><p class="org">Universiti Teknologi PETRONAS</p><ul><li>Researched neural networks for adaptive user interfaces that help visually impaired people use technology.</li><li>Explored how machine learning can adapt an interface to each user's needs and abilities.</li></ul></div></div>
+        <div class="row"><div class="when">Bangladesh</div><div><h3>MSc, Information Technology</h3><p class="org">University of Dhaka</p><ul><li>Master's thesis in AI: detecting the musical key of songs from audio with Hidden Markov Models.</li><li>Worked hands-on with audio signal processing and probabilistic machine learning.</li></ul></div></div>
+              </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="in">
+      <div class="head"><span class="eyebrow">Professional experience</span><h2>15+ years in <em>tech.</em></h2></div>
+      <div class="tl">
+        <div class="row"><div class="when">Feb 2025 – Sep 2026</div><div><h3>Head of Quality Engineering <span class="ai-tag">AI</span></h3><p class="org">Bauer Media Group · Hamburg</p><ul>
+          <li>Founded the AI Hackathon programme and AI Champions network; 3 projects went live, saving teams 6–8 hours a week.</li>
+          <li>Trained 50+ engineers to work AI-enabled; core contributor to Embrace AI, a GenAI initiative with 30+ contributors.</li>
+          <li>Built the Quality Engineering function from the ground up across Germany, the UK, Norway and Poland.</li>
+          <li>Defined one release process across teams; reached 75% automated coverage of critical journeys in six months.</li></ul></div></div>
+        <div class="row"><div class="when">Jul 2025 – today</div><div><h3>AI Literacy Trainer &amp; Mentor <span class="ai-tag">AI</span></h3><p class="org">Independent &amp; volunteer · Hamburg</p><ul>
+          <li>Designed a modular AI literacy curriculum: foundations, GenAI tools, hands-on projects and careers in tech.</li>
+          <li>Coached 20+ students and professionals 1:1 across developing countries.</li></ul></div></div>
+        <div class="row"><div class="when">Jul 2023 – Jan 2025</div><div><h3>Senior Software QA Engineer</h3><p class="org">Blau Direkt GmbH (Fintech / Insurtech) · Hamburg</p><ul>
+          <li>Co-owned delivery and quality strategy across teams: KPIs, release standards and execution frameworks.</li></ul></div></div>
+        <div class="row"><div class="when">Apr 2017 – Jun 2023</div><div><h3>Software QA Engineer</h3><p class="org">NEW WORK SE · Germany &amp; Portugal</p><ul>
+          <li>Championed shift-left practices, increasing early defect detection by 50%.</li></ul></div></div>
+        <div class="row"><div class="when">Jun 2012 – Oct 2015</div><div><h3>Software Engineer (Mobile &amp; IoT R&amp;D)</h3><p class="org">Samsung R&amp;D Institute · South Korea &amp; Bangladesh</p><ul>
+          <li>Contributed to Galaxy S6, Galaxy Note 4 and SmartThings IoT releases.</li></ul></div></div>
+        <div class="row"><div class="when">Jan 2010 – May 2012</div><div><h3>IT Support Officer</h3><p class="org">SMARS Telecom Ltd. · Dhaka</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="in">
+      <div class="head"><span class="eyebrow">Other ventures</span><h2>Beyond <em>tech.</em></h2></div>
+      <div class="venture">
+        <span class="logo"><svg class="i"><use href="#i-home"/></svg></span>
+        <div><h3 style="font:400 30px/1.1 var(--serif)">Elite Homes International</h3><p class="role">Founder &amp; Managing Partner</p><p>A real estate consultancy for international clients, guiding people from abroad to the right home.</p></div>
+        <div><a class="btn outline" href="https://www.elitehomesinternational.com/" target="_blank" rel="noopener">Visit website →</a><small>Website coming soon</small></div>
+      </div>
+      <div class="venture dream">
+        <span class="logo" aria-hidden="true" style="font-size:36px">🍢</span>
+        <div><h3 style="font:400 30px/1.1 var(--serif)">A taste of Bangladesh</h3><p class="role">A dream in progress</p><p>My next dream is far from code: a Bangladeshi street food cart that brings the bold, spicy and tangy flavours of Dhaka's streets to Germany. Cooked fresh in front of you, served with stories from home and a little of the warmth of a Bangladeshi evening market. Not open yet, but the recipe book is already filling up.</p></div>
+        <div><span class="soon">Coming one day</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="in">
+      <div class="head"><span class="eyebrow">Conferences</span><h2>Where I learn and <em>share.</em></h2></div>
+      <div class="conf">
+        <figure class="badgefig"><img src="images/conference-badges.webp" alt="Umme Salma's conference badges from AI Media Leaders 2025, Product-Led Summit and Kundeopplevelsesdagen" width="1180" height="701" loading="lazy"></figure>
+        <div class="clist">
+          <div class="citem"><span class="ico a"><svg class="i"><use href="#i-mic"/></svg></span><div><h3>United Nations AI Summit</h3><small>Zurich · Delegate · AI adoption, infrastructure and policy</small></div></div>
+          <div class="citem"><span class="ico b"><svg class="i"><use href="#i-mic"/></svg></span><div><h3>Product-Led Summit</h3><small>Amsterdam · AI-driven product strategy</small></div></div>
+          <div class="citem"><span class="ico c"><svg class="i"><use href="#i-mic"/></svg></span><div><h3>AI Media Leaders 2025</h3><small>Hamburg · Executive AI conference for media</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="in">
+      <div class="head"><span class="eyebrow">Social work</span><h2>Giving back, <em>since 2019.</em></h2><p class="sub">Talent is everywhere. Access to knowledge should be too.</p></div>
+      <div class="grid3">
+        <div class="card"><span class="ico b"><svg class="i"><use href="#i-heart"/></svg></span><h3>Plan International</h3><p>Volunteer since 2019: mentoring, education initiatives and scholarships.</p></div>
+        <div class="card"><span class="ico d"><svg class="i"><use href="#i-users"/></svg></span><h3>Gender Equality and Dignity (GED) Project</h3><p>Contributor to a project for gender equality and dignity.</p></div>
+        <div class="card"><span class="ico a"><svg class="i"><use href="#i-spark"/></svg></span><h3>Free AI literacy coaching</h3><p>Volunteer coaching for students and professionals in developing countries.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="in">
+      <div class="head"><span class="eyebrow">YouTube</span><h2>Watch my <em>videos.</em></h2></div>
+      <div class="grid3">
+        <a class="video" href="https://www.youtube.com/watch?v=8MvnE_1JOjo" target="_blank" rel="noopener">
+          <div class="thumb"><img src="images/xing-video.jpg" alt="Still from Umme Salma's XING video, Starting a new life in Germany" width="960" height="540" loading="lazy"><span class="play"><svg class="i"><use href="#i-play"/></svg></span></div>
+          <div class="vb"><h3>Starting a new life in Germany</h3><small>XING · my story of moving and building a career</small></div>
+        </a>
+        <div class="video ph"><div class="thumb"><span class="play"><svg class="i"><use href="#i-play"/></svg></span></div><div class="vb"><h3>[ Video title ]</h3><small>[ Add your next YouTube video ]</small></div></div>
+        <div class="video ph"><div class="thumb"><span class="play"><svg class="i"><use href="#i-play"/></svg></span></div><div class="vb"><h3>[ Video title ]</h3><small>[ Add your next YouTube video ]</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="story-contact">
+    <div class="in">
+      <div class="contact-box">
+        <div>
+          <span class="eyebrow" style="color:var(--band-dot)">Contact</span>
+          <h2>Let's <em>connect.</em></h2>
+          <p>For collaborations, talks, research or new opportunities, write to me or connect on LinkedIn.</p>
+          <div class="mail" style="color:var(--canvas)"><span id="mail2">[ email address ]</span><button type="button" data-copy="mail2">Copy</button></div>
+        </div>
+        <div class="btns">
+          <button class="btn coral" type="button" data-cv><svg class="i"><use href="#i-file"/></svg>Request my CV</button>
+          <a class="btn outline" href="https://www.linkedin.com/in/ummesalmaeiti" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ====================== IMPRESSUM ====================== -->
+<div data-panel="impressum" hidden>
+  <section class="section legal">
+    <div class="in">
+      <span class="eyebrow">Legal notice</span>
+      <h1 class="lh">Impressum</h1>
+      <p class="sub">Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)</p>
+      <div class="lbox">
+        <h2 class="lh2">Anbieterin</h2>
+        <p>Umme Salma<br>[ Straße und Hausnummer ]<br>[ PLZ ] Hamburg<br>Deutschland</p>
+        <h2 class="lh2">Kontakt</h2>
+        <p>E-Mail: [ email address ]<br>Telefon: [ optional, Telefonnummer ]</p>
+        <h2 class="lh2">Umsatzsteuer</h2>
+        <p>[ Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG, falls vorhanden. Sonst: Kleinunternehmerin gemäß § 19 UStG, oder diesen Abschnitt entfernen. ]</p>
+        <h2 class="lh2">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+        <p>Umme Salma, Anschrift wie oben</p>
+        <h2 class="lh2">Verbraucherstreitbeilegung</h2>
+        <p>Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        <h2 class="lh2">Haftung für Links</h2>
+        <p>Diese Website enthält Links zu externen Websites Dritter (zum Beispiel LinkedIn und YouTube), auf deren Inhalte ich keinen Einfluss habe. Für diese Inhalte ist stets der jeweilige Anbieter verantwortlich.</p>
+      </div>
+      <p class="lnote">Vorlage zum Ausfüllen. Bitte vor dem Livegang mit einem Generator (z. B. eRecht24) oder einer Anwältin bzw. einem Anwalt prüfen.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ====================== DATENSCHUTZ ====================== -->
+<div data-panel="datenschutz" hidden>
+  <section class="section legal">
+    <div class="in">
+      <span class="eyebrow">Privacy policy</span>
+      <h1 class="lh">Datenschutzerklärung</h1>
+      <p class="sub">Informationen zur Verarbeitung personenbezogener Daten nach der DSGVO</p>
+      <div class="lbox">
+        <h2 class="lh2">1. Verantwortliche</h2>
+        <p>Umme Salma, [ Anschrift wie im Impressum ], E-Mail: [ email address ]</p>
+        <h2 class="lh2">2. Hosting und Server-Logfiles</h2>
+        <p>Diese Website wird bei [ Name des Hosting-Anbieters, Sitz ] gehostet. Beim Aufruf der Seiten werden technisch notwendige Daten wie IP-Adresse, Datum und Uhrzeit, aufgerufene Seite und Browsertyp in Server-Logfiles verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (sicherer und stabiler Betrieb der Website). [ Speicherdauer der Logfiles ergänzen ]</p>
+        <h2 class="lh2">3. Kontaktformular und E-Mail</h2>
+        <p>Wenn Sie mir über das Formular oder per E-Mail schreiben, verarbeite ich Ihren Namen, Ihre E-Mail-Adresse, Ihre Angaben zu Rolle und Thema sowie Ihre Nachricht, um Ihre Anfrage zu beantworten und ein kostenloses Gespräch zu vereinbaren. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. f DSGVO. Die Daten werden gelöscht, sobald die Anfrage erledigt ist und keine gesetzlichen Aufbewahrungspflichten bestehen. [ Formular-Dienst, z. B. Formspree oder Brevo, mit Sitz und ggf. Drittlandübermittlung ergänzen ]</p>
+        <h2 class="lh2">4. Schriftarten</h2>
+        <p>[ Die Schriftarten werden lokal vom eigenen Server geladen; es findet keine Verbindung zu Google statt. ] Hinweis für die Umsetzung: Die Google Fonts bitte selbst hosten, damit keine IP-Adressen an Google übertragen werden.</p>
+        <h2 class="lh2">5. Externe Links (LinkedIn, YouTube, GitHub, X)</h2>
+        <p>Die Website enthält nur einfache Links zu diesen Diensten, keine eingebetteten Inhalte. Erst wenn Sie einen Link anklicken, gelangen Sie zum jeweiligen Anbieter, dessen Datenschutzbestimmungen dann gelten.</p>
+        <h2 class="lh2">6. Lokaler Speicher</h2>
+        <p>Ihre Auswahl zwischen hellem und dunklem Design wird nur in Ihrem Browser gespeichert (localStorage). Diese Information wird nicht an mich übertragen. Rechtsgrundlage ist § 25 Abs. 2 Nr. 2 TDDDG.</p>
+        <h2 class="lh2">7. Ihre Rechte</h2>
+        <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch (Art. 15 bis 21 DSGVO). Schreiben Sie dazu an [ email address ]. Sie können sich außerdem bei einer Datenschutz-Aufsichtsbehörde beschweren, zum Beispiel beim Hamburgischen Beauftragten für Datenschutz und Informationsfreiheit.</p>
+        <p style="margin-top:18px">Stand: [ Datum ]</p>
+      </div>
+      <p class="lnote">Vorlage zum Ausfüllen. Bitte vor dem Livegang mit einem Generator (z. B. eRecht24) oder einer Anwältin bzw. einem Anwalt prüfen und an die tatsächlich genutzten Dienste anpassen.</p>
+    </div>
+  </section>
+</div>
+<dialog class="cvd" id="cvDialog" aria-labelledby="cvTitle">
+  <button class="x" type="button" data-close aria-label="Close">×</button>
+  <form id="cvForm" novalidate data-form="cv-request">
+    <div><span class="eyebrow">CV request</span><h2 id="cvTitle">Want to know <em>more?</em></h2><p class="sub" style="font-size:15px;margin-top:8px">Tell me who you are and I'll send you my CV personally.</p></div>
+    <label>Your name<input name="name" required autocomplete="name" placeholder="Your full name"></label>
+    <label>Company<input name="company" autocomplete="organization" placeholder="Company or organisation"></label>
+    <label>Email<input name="email" type="email" required autocomplete="email" placeholder="you@company.com"></label>
+    <label>Role or message (optional)<textarea name="message" rows="3" placeholder="Which role is this for?"></textarea></label>
+    <button class="btn coral" type="submit">Send request</button>
+  </form>
+  <div id="cvThanks" hidden style="padding:36px 28px;text-align:center"><div style="font-size:44px">📬</div><h2 style="margin:10px 0">Thank you!</h2><p class="sub" style="margin-inline:auto">Your request is on its way. I'll get back to you within two working days.</p><button class="btn outline" type="button" data-close style="margin-top:18px">Close</button></div>
+</dialog>
+</main>
+
+<footer>
+  <div class="in top">
+    <div>
+      <a class="brand" href="#home">Umme Salma<span>.</span></a>
+      <p class="sub" style="font-size:15px;margin-top:10px">AI literacy, career coaching and engineering leadership, grounded in 15+ years across Asia and Europe.</p>
+      <div class="socials" style="margin-top:18px">
+        <a href="https://www.linkedin.com/in/ummesalmaeiti" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i"><use href="#i-in"/></svg></a>
+        <a href="https://github.com/UmmeSalma10" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i"><use href="#i-gh"/></svg></a>
+        <a href="#" data-todo="X (Twitter)" aria-label="X (Twitter)"><svg class="i"><use href="#i-x"/></svg></a>
+        <a href="https://www.youtube.com/watch?v=8MvnE_1JOjo" target="_blank" rel="noopener" aria-label="YouTube"><svg class="i"><use href="#i-yt"/></svg></a>
+      </div>
+    </div>
+    <div><h4>Explore</h4><ul><li><a href="#courses">Courses &amp; coaching</a></li><li><a href="#story">My story</a></li><li><a href="#pips-corner">Pip's Corner (free tools)</a></li><li><a href="#book">Book a free call</a></li></ul></div>
+    <div><h4>Legal</h4><ul><li><a href="#impressum">Impressum</a></li><li><a href="#datenschutz">Datenschutz</a></li></ul></div>
+  </div>
+  <div class="in bottom"><span>© 2026 Umme Salma · Hamburg, Germany</span><span>AI literacy &amp; career coach</span></div>
+</footer>
+
+<script>
+(function(){
+  const root=document.documentElement;
+  // Theme: light / dark switch, remembered on this device
+  const mq=matchMedia('(prefers-color-scheme: dark)');
+  function isDark(){const t=root.getAttribute('data-theme');return t?t==='dark':mq.matches;}
+  function paint(){root.setAttribute('data-dark',isDark()?'1':'0');}
+  try{const s=localStorage.getItem('us-theme');if(s)root.setAttribute('data-theme',s);}catch(e){}
+  paint(); mq.addEventListener?.('change',paint);
+  document.getElementById('themeBtn').addEventListener('click',()=>{
+    const next=isDark()?'light':'dark'; root.setAttribute('data-theme',next); paint();
+    try{localStorage.setItem('us-theme',next);}catch(e){}
+  });
+
+  // Views: #home and #story; section links switch to the right view
+  const views=['home','pips-corner','story','impressum','datenschutz'];
+  function show(){
+    const h=(location.hash||'#home').slice(1);
+    const target=document.getElementById(h);
+    const v=views.includes(h)?h:(target?.closest('[data-panel]')?.dataset.panel||'home');
+    document.querySelectorAll('[data-panel]').forEach(p=>p.hidden=p.dataset.panel!==v);
+    const vk=v==='pips-corner'?'pips':v;
+    const links=[...document.querySelectorAll('[data-view]')];
+    const hasSec=links.some(a=>a.dataset.sec===h);
+    links.forEach(a=>{
+      const on=hasSec?a.dataset.sec===h:(a.dataset.view===vk&&!a.dataset.sec);
+      if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+    });
+    const T={'pips-corner':"Pip's Corner | Free fun games to let off steam, calm down and smile",home:'Umme Salma | AI Literacy & Career Coach for Students and Professionals',story:'My Story | Umme Salma, AI Researcher, Engineering Leader and Educator',impressum:'Impressum | Umme Salma',datenschutz:'Datenschutz | Umme Salma'};
+    document.title=T[v];
+    if(views.includes(h))scrollTo(0,0);else target?.scrollIntoView();
+  }
+  addEventListener('hashchange',show); show();
+
+  // Rotating job titles on the profile cards
+  const sets={home:['AI Literacy Coach','Career Coach','AI Enablement Leader'],story:['AI Enablement Leader','Engineering Leader','AI Researcher']};
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-roles]').forEach(el=>{
+    const list=sets[el.closest('[data-panel]').dataset.panel]; let i=0;
+    if(reduce)return;
+    setInterval(()=>{i=(i+1)%list.length;el.style.transform='translateY(-100%)';el.style.opacity='0';
+      setTimeout(()=>{el.textContent=list[i];el.style.transition='none';el.style.transform='translateY(100%)';
+        requestAnimationFrame(()=>{el.style.transition='';el.style.transform='';el.style.opacity='1';});},450);},2600);
+  });
+
+  // Courses and "where to start" open the form with the topic filled in
+  const topic=document.getElementById('f-topic');
+  function openForm(t){
+    const form=document.getElementById('bookForm');
+    form.hidden=false;document.getElementById('bookThanks').hidden=true;
+    if(t)[...topic.options].forEach(o=>{if(o.text===t)topic.value=o.value;});
+    if(location.hash!=='#book')location.hash='book';else document.getElementById('book').scrollIntoView();
+    form.classList.remove('flash');void form.offsetWidth;form.classList.add('flash');
+    setTimeout(()=>document.getElementById('f-name').focus({preventScroll:true}),400);
+  }
+  document.querySelectorAll('[data-topic]').forEach(b=>b.addEventListener('click',()=>openForm(b.dataset.topic)));
+  document.querySelectorAll('[data-to]').forEach(b=>b.addEventListener('click',()=>{
+    const t=b.dataset.to; const card=[...document.querySelectorAll('[data-topic]')].find(x=>x.dataset.topic===t);
+    if(card){location.hash='courses';setTimeout(()=>{card.closest('.course').scrollIntoView({block:'center'});card.closest('.course').classList.add('flash');setTimeout(()=>card.closest('.course').classList.remove('flash'),1300);},60);}
+  }));
+
+  // Form: check required fields, then show the thank-you message
+  const form=document.getElementById('bookForm');
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    if(!form.checkValidity()){form.reportValidity();return;}
+    if(FORM_ENDPOINT){try{await fetch(FORM_ENDPOINT,{method:'POST',headers:{Accept:'application/json'},body:new FormData(form)});}catch(err){}}
+    form.hidden=true;document.getElementById('bookThanks').hidden=false;
+  });
+  document.getElementById('again').addEventListener('click',()=>{form.reset();form.hidden=false;document.getElementById('bookThanks').hidden=true;});
+
+  // Copy email
+  document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
+    const el=document.getElementById(b.dataset.copy);
+    navigator.clipboard?.writeText(el.textContent).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1800);})
+      .catch(()=>{const r=document.createRange();r.selectNodeContents(el);getSelection().removeAllRanges();getSelection().addRange(r);});
+  }));
+
+  // Placeholders for links still to add
+  document.querySelectorAll('[data-todo]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();a.title=a.dataset.todo+' link still to add';}));
+  // CV request (no direct download). FORM_ENDPOINT: see README (Formspree / WPForms etc.)
+  const FORM_ENDPOINT='';
+  const dlg=document.getElementById('cvDialog'), cvForm=document.getElementById('cvForm');
+  document.querySelectorAll('[data-cv]').forEach(b=>b.addEventListener('click',()=>{cvForm.hidden=false;document.getElementById('cvThanks').hidden=true;dlg.showModal();}));
+  dlg.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>dlg.close()));
+  dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close();});
+  cvForm.addEventListener('submit',async e=>{
+    e.preventDefault(); if(!cvForm.checkValidity()){cvForm.reportValidity();return;}
+    if(FORM_ENDPOINT){try{await fetch(FORM_ENDPOINT,{method:'POST',headers:{Accept:'application/json'},body:new FormData(cvForm)});}catch(err){}}
+    cvForm.hidden=true;document.getElementById('cvThanks').hidden=false;cvForm.reset();
+  });
+
+  // Pip's Corner filter
+  document.querySelectorAll('.pips-legend button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.pips-legend button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+    document.querySelectorAll('.tgrid .tcard').forEach(c=>{c.hidden=!(b.dataset.f==='all'||c.dataset.kind===b.dataset.f||c.dataset.kind==='all');});
+  }));
+
+  // Soft neural network background on every page
+  (function(){
+    const cv=document.getElementById('nnBg'); const ctx=cv.getContext('2d'); if(!ctx) return;
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let pts=[],w=0,h=0,dpr=Math.min(devicePixelRatio||1,2),col='#1E4E8C',la=.3,da=.5;
+    function size(){w=innerWidth;h=innerHeight;cv.width=w*dpr;cv.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+      const n=Math.round(Math.min(70,w*h/22000));
+      pts=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.18,vy:(Math.random()-.5)*.18,r:Math.random()*1.6+1.4}));}
+    function readCol(){const cs=getComputedStyle(document.documentElement);col=cs.getPropertyValue('--nn').trim()||col;la=parseFloat(cs.getPropertyValue('--nn-line'))||la;da=parseFloat(cs.getPropertyValue('--nn-dot'))||da;}
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      for(const p of pts){ if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;} }
+      ctx.strokeStyle=col;
+      for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+        const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<150){ctx.globalAlpha=(1-d/150)*la;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+      ctx.fillStyle=col;
+      for(const p of pts){ctx.globalAlpha=da;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fill();}
+      ctx.globalAlpha=1;
+      if(!reduce) requestAnimationFrame(draw);
+    }
+    size();readCol();draw();
+    addEventListener('resize',()=>{size();if(reduce)draw();});
+    new MutationObserver(()=>{readCol();if(reduce)draw();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-dark','data-theme']});
+  })();
+})();
+  // My story: "cognitive twin" particle face. Human half (coral dots) teaches the AI half (teal dots).
+  (function(){
+    const cv=document.getElementById('twinCv'); if(!cv) return;
+    const ctx=cv.getContext('2d'), reduceM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+    const rgba=(h,a)=>{h=h.replace('#','');if(h.length===3)h=h.split('').map(x=>x+x).join('');const n=parseInt(h,16);return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`;};
+    const F={head:"M200 66 C142 66 110 112 110 176 C110 232 132 274 162 302 C178 316 190 322 200 322 C210 322 222 316 238 302 C268 274 290 232 290 176 C290 112 258 66 200 66 Z",
+      hairL:"M200 54 C130 54 94 106 98 182 C100 252 94 304 72 356",hairR:"M200 54 C270 54 306 106 302 182 C300 252 306 304 328 356",neck:"M170 312 L168 362 M230 312 L232 362",
+      browL:"M142 152 Q162 140 184 148",browR:"M216 148 Q238 140 258 152",eyeL:"M146 180 Q164 168 184 180 Q164 192 146 180 Z",eyeR:"M216 180 Q236 168 254 180 Q236 192 216 180 Z",
+      glassL:"M134 172 Q134 160 146 160 L184 160 Q194 160 194 172 L192 188 Q190 202 176 202 L152 202 Q136 202 135 188 Z",glassR:"M206 172 Q206 160 218 160 L254 160 Q266 160 266 172 L265 188 Q264 202 248 202 L224 202 Q210 202 208 188 Z",
+      bridge:"M194 172 Q200 166 206 172",nose:"M200 196 L190 236 Q200 244 210 236",lips:"M176 268 Q188 260 200 265 Q212 260 224 268 Q212 282 200 282 Q188 282 176 268 Z"};
+    const P={};for(const k in F)P[k]=new Path2D(F[k]);
+    const t2=document.createElement('canvas').getContext('2d');
+    const FEAT=['browL','browR','eyeL','eyeR','glassL','glassR','nose','lips','head','bridge'];
+    const pts=[];const step=6.5;
+    for(let y=56;y<=362;y+=step)for(let x=62;x<=338;x+=step){
+      let inside=t2.isPointInPath(P.head,x,y);t2.lineWidth=5;
+      if(!inside)for(const k of ['hairL','hairR','neck'])if(t2.isPointInStroke(P[k],x,y)){inside=true;break;}
+      if(!inside)continue;t2.lineWidth=6;let f=false;for(const k of FEAT)if(t2.isPointInStroke(P[k],x,y)){f=true;break;}
+      pts.push({x,y,f,side:x<200?0:1});}
+    const human=pts.filter(p=>p.side===0).map(p=>({...p,flash:0}));
+    const twin=pts.filter(p=>p.side===1).map(p=>({...p,on:0,a:0,ox:0,oy:0,vx:0,vy:0}));
+    let flying=[],back=[],W=0,H=0,k=1,ox=0,oy=0,mouse=null,lastMove=0,state='build',stateT=0,emitAcc=0;
+    function size(){const b=cv.getBoundingClientRect(),d=devicePixelRatio||1;W=b.width;H=b.height;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);k=Math.min(W,H)/400;ox=(W-400*k)/2;oy=(H-400*k)/2;}
+    addEventListener('resize',size);size();
+    const toLocal=e=>{const b=cv.getBoundingClientRect();return[(e.clientX-b.left-ox)/k,(e.clientY-b.top-oy)/k];};
+    cv.addEventListener('pointermove',e=>{mouse=toLocal(e);lastMove=performance.now();});
+    cv.addEventListener('pointerdown',e=>{mouse=toLocal(e);lastMove=performance.now();for(let i=0;i<8;i++)emitNear(mouse);});
+    cv.addEventListener('pointerleave',()=>{mouse=null;});
+    function emit(h){const free=twin.filter(p=>!p.on&&!p.claimed);if(!free.length)return;
+      let best=null,bd=1e9;const mx=400-h.x;for(let i=0;i<14;i++){const c=free[Math.random()*free.length|0];const d=Math.hypot(c.x-mx,c.y-h.y);if(d<bd){bd=d;best=c;}}
+      best.claimed=1;h.flash=1;flying.push({sx:h.x,sy:h.y,tx:best.x,ty:best.y,t:0,dur:.7+Math.random()*.5,lift:-30-Math.random()*50,tgt:best});}
+    function emitNear(m){const c=human.filter(h=>Math.hypot(h.x-m[0],h.y-m[1])<40);if(c.length)emit(c[Math.random()*c.length|0]);}
+    const ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;
+    let last=performance.now();
+    function frame(now){const dt=Math.min(.05,(now-last)/1000);last=now;const cw=cv.clientWidth;if(!cw){requestAnimationFrame(frame);return;}if(Math.abs(cw-W)>1)size();const ink=css('--ink'),te=css('--teal'),co=css('--coral'),mu=css('--muted');
+      const built=twin.filter(p=>p.on).length/twin.length;
+      if(state==='build'){
+        const active=mouse&&now-lastMove<400;
+        if(active&&mouse[0]<205){emitAcc+=dt*90;while(emitAcc>1){emitAcc--;emitNear(mouse);}}
+        else if(now-lastMove>1500){emitAcc+=dt*(reduceM?80:24);while(emitAcc>1){emitAcc--;emit(human[Math.random()*human.length|0]);}}
+        if(built>=1&&!flying.length){state='ready';stateT=now;
+          for(let i=0;i<34;i++){const s=twin[Math.random()*twin.length|0],h=human[Math.random()*human.length|0];back.push({sx:s.x,sy:s.y,tx:h.x,ty:h.y,t:-Math.random()*.6,dur:.9+Math.random()*.4,lift:-40-Math.random()*40,h});}}
+      } else if(state==='ready'&&now-stateT>4200){state='reset';stateT=now;}
+      else if(state==='reset'){twin.forEach(p=>{if(p.on&&Math.random()<dt*1.6){p.on=0;p.claimed=0;}});if(!twin.some(p=>p.on)){state='build';twin.forEach(p=>{p.a=0;p.claimed=0;});}}
+      ctx.clearRect(0,0,W,H);ctx.save();ctx.translate(ox,oy);ctx.scale(k,k);
+      // midline
+      ctx.strokeStyle=rgba(co,.35);ctx.lineWidth=1;ctx.setLineDash([2,6]);ctx.beginPath();ctx.moveTo(200,46);ctx.lineTo(200,368);ctx.stroke();ctx.setLineDash([]);
+      // human dots
+      human.forEach(h=>{h.flash=Math.max(0,h.flash-dt*2.2);const r=(h.f?2.2:1.5)+h.flash*1.6;ctx.fillStyle=h.flash>.05&&h.tealFlash?rgba(te,.9):(h.f?ink:rgba(co,.62));ctx.beginPath();ctx.arc(h.x,h.y,r,0,6.28);ctx.fill();if(h.flash<.05)h.tealFlash=0;});
+      // twin ghost + dots
+      twin.forEach(p=>{p.a+=((p.on?1:0)-p.a)*Math.min(1,dt*6);
+        let ax=-p.ox*.08,ay=-p.oy*.08;if(mouse&&mouse[0]>195){const dx=p.x+p.ox-mouse[0],dy=p.y+p.oy-mouse[1],d=Math.hypot(dx,dy);if(d<46&&p.on){const f=(46-d)/46*2.6;ax+=dx/(d||1)*f;ay+=dy/(d||1)*f;}}
+        p.vx=(p.vx+ax)*.84;p.vy=(p.vy+ay)*.84;p.ox+=p.vx;p.oy+=p.vy;
+        if(p.a<.98){ctx.fillStyle=rgba(te,.13*(1-p.a));ctx.beginPath();ctx.arc(p.x,p.y,1,0,6.28);ctx.fill();}
+        if(p.a>.02){ctx.fillStyle=rgba(te,(p.f?.95:.6)*p.a);ctx.beginPath();ctx.arc(p.x+p.ox,p.y+p.oy,(p.f?2.2:1.5)*(.6+.4*p.a),0,6.28);ctx.fill();}});
+      // flying human -> twin
+      flying.forEach(f=>{f.t+=dt/f.dur;const e=ease(Math.min(1,f.t));const x=f.sx+(f.tx-f.sx)*e,y=f.sy+(f.ty-f.sy)*e+Math.sin(e*Math.PI)*f.lift;
+        ctx.fillStyle=e<.5?rgba(co,.9):rgba(te,.9);ctx.beginPath();ctx.arc(x,y,2.2,0,6.28);ctx.fill();ctx.fillStyle=rgba(e<.5?co:te,.18);ctx.beginPath();ctx.arc(x,y,6,0,6.28);ctx.fill();
+        if(f.t>=1){f.tgt.on=1;}});flying=flying.filter(f=>f.t<1);
+      // flying twin -> human (when ready)
+      back.forEach(b=>{b.t+=dt/b.dur;if(b.t<0)return;const e=ease(Math.min(1,b.t));const x=b.sx+(b.tx-b.sx)*e,y=b.sy+(b.ty-b.sy)*e+Math.sin(e*Math.PI)*b.lift;ctx.fillStyle=rgba(te,.95);ctx.beginPath();ctx.arc(x,y,2.4,0,6.28);ctx.fill();if(b.t>=1){b.h.flash=1;b.h.tealFlash=1;}});back=back.filter(b=>b.t<1);
+      // twin eye glow
+      if(built>.8){const g=ctx.createRadialGradient(235,180,0,235,180,18);g.addColorStop(0,rgba(te,.85*(built-.8)*5));g.addColorStop(1,rgba(te,0));ctx.fillStyle=g;ctx.beginPath();ctx.arc(235,180,18,0,6.28);ctx.fill();}
+      if(state==='ready'){const p=Math.min(1,(now-stateT)/600);const g=ctx.createRadialGradient(250,200,0,250,200,150);g.addColorStop(0,rgba(te,.14*p));g.addColorStop(1,rgba(te,0));ctx.fillStyle=g;ctx.fillRect(100,50,300,320);}
+      // labels
+      ctx.textAlign='center';ctx.font='600 12px "DM Sans",sans-serif';ctx.fillStyle=mu;
+      const msg=state==='ready'?'Your cognitive twin is ready ✦ it thinks with you':state==='reset'?'Starting again…':`Move over her face to teach her twin · ${Math.round(built*100)}%`;
+      ctx.fillText(msg,200,392);
+      ctx.restore();requestAnimationFrame(frame);}
+    requestAnimationFrame(frame);
+  })();
+</script>

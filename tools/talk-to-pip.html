@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Talk to Pip | Pip's Corner by Umme Salma</title>
+<meta name="description" content="Scribble, vent to Pip, scream or get a joke. Free stress-relief tools from Pip's Corner by Umme Salma.">
+<style>html,body{margin:0}body{min-height:100vh}img{max-width:100%}[hidden]{display:none!important}
+.pc-bar{max-width:640px;margin:0 auto;padding:14px max(16px,env(safe-area-inset-left,0px)) 0;display:flex}
+.pc-bar a{font:600 14px/1 Inter,system-ui,sans-serif;text-decoration:none;color:inherit;background:var(--surface,#fff);border:1.5px solid var(--line,#ddd);border-radius:999px;padding:9px 14px}
+.pc-foot{max-width:640px;margin:0 auto;padding:0 16px 32px;text-align:center;font:14px/1.5 Inter,system-ui,sans-serif;color:var(--muted,#666)}
+.pc-foot a{color:inherit}</style>
+</head>
+<body>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: a single signpost column — one question at a time, then four direction cards */
+:root{
+  --bg:#F2F3F7; --surface:#FFFFFF; --fg:#1B1E2B; --muted:#5D6275; --line:#DADDE7;
+  --sign:#F2C230; --sign-ink:#1B1E2B;
+  --learn:#2F6FDB; --hobby:#D2457A; --earn:#1E8C5A; --recharge:#7A5AD6;
+  --display:"Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#13151D; --surface:#1C1F2A; --fg:#ECEDF3; --muted:#A3A8BA; --line:#2E3242;
+  --sign:#F2C230; --sign-ink:#1B1E2B;
+  --learn:#6FA2F5; --hobby:#F07AA6; --earn:#4FC28C; --recharge:#A58CF2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#13151D; --surface:#1C1F2A; --fg:#ECEDF3; --muted:#A3A8BA; --line:#2E3242;
+  --sign:#F2C230; --sign-ink:#1B1E2B;
+  --learn:#6FA2F5; --hobby:#F07AA6; --earn:#4FC28C; --recharge:#A58CF2; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:640px;margin:0 auto;padding-block:28px 56px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));
+  display:flex;flex-direction:column;gap:24px}
+.sign{display:inline-block;background:var(--sign);color:var(--sign-ink);font-family:var(--display);font-weight:800;
+  font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:4px;transform:rotate(-2deg);align-self:flex-start}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,10vw,64px);line-height:.95;margin:0;letter-spacing:-.02em;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(24px,6vw,32px);line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0}
+.lede{color:var(--muted);font-size:18px;max-width:34ch}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+button{font:inherit;cursor:pointer}
+.chip{background:var(--surface);color:var(--fg);border:1.5px solid var(--line);border-radius:999px;padding:10px 16px;font-weight:500;transition:border-color .15s, transform .15s}
+.chip:hover{border-color:var(--fg)}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.chip:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--sign);outline-offset:2px}
+.btn{background:var(--fg);color:var(--bg);border:0;border-radius:10px;padding:14px 22px;font-weight:600;font-size:16px}
+.btn.ghost{background:transparent;color:var(--fg);border:1.5px solid var(--line)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.progress{display:flex;gap:6px}
+.progress span{flex:1;height:4px;border-radius:2px;background:var(--line)}
+.progress span.on{background:var(--fg)}
+.step-label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;font-variant-numeric:tabular-nums}
+textarea,input[type=text]{width:100%;box-sizing:border-box;background:var(--surface);color:var(--fg);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;font:inherit;resize:vertical}
+.cards{display:grid;gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;border-top:5px solid var(--c)}
+.card .tag{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+.card h3{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.15;margin:0}
+.card .why{color:var(--muted)}
+.first{background:var(--bg);border-radius:10px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start}
+.first b{font-family:var(--display);white-space:nowrap}
+.legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.legend div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;border-left:4px solid var(--c)}
+.legend b{display:block;font-family:var(--display);font-size:17px}
+.legend small{color:var(--muted)}
+.status{color:var(--muted)}
+.thinking{display:flex;gap:10px;align-items:center;color:var(--muted)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--sign);animation:p 1s ease-in-out infinite}
+@keyframes p{50%{transform:scale(.5);opacity:.5}}
+@media (prefers-reduced-motion: reduce){.dot{animation:none}.chip{transition:none}}
+.foot{color:var(--muted);font-size:13px}
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tool{background:var(--sign);color:var(--sign-ink);border:0;border-radius:12px;padding:16px;text-align:left;display:flex;flex-direction:column;gap:4px;transition:transform .15s}
+.tool:hover{transform:rotate(-1deg) scale(1.02)}
+.tool b{font-family:var(--display);font-size:19px;font-weight:800}
+.tool small{font-size:13px;opacity:.8}
+.sec-label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:-12px}
+.board{position:relative;width:100%;height:min(60vh,420px);background:var(--surface);border:1.5px solid var(--line);border-radius:14px;overflow:hidden;touch-action:none}
+.board canvas{width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.6,-0.3,.7,1), opacity .6s}
+.board.crumple canvas{transform:scale(.05) rotate(220deg);opacity:0}
+.swatch{width:34px;height:34px;border-radius:50%;border:3px solid var(--surface);outline:1.5px solid var(--line);padding:0}
+.swatch[aria-pressed="true"]{outline:3px solid var(--fg)}
+.burnzone{position:relative;min-height:160px}
+.burnzone .ch{display:inline-block;white-space:pre;animation:burn 1.6s ease-in forwards}
+@keyframes burn{0%{color:var(--fg)}30%{color:#F28C28}60%{color:#E0412B;filter:blur(1px)}100%{color:#E0412B;transform:translateY(-140px) rotate(var(--r));opacity:0;filter:blur(4px)}}
+.flames{height:8px;border-radius:4px;background:linear-gradient(90deg,#F2C230,#F28C28,#E0412B,#F28C28,#F2C230);background-size:200% 100%;animation:fl 1s linear infinite}
+@keyframes fl{to{background-position:200% 0}}
+.scream-word{font-family:var(--display);font-weight:800;line-height:1;word-break:break-all;color:var(--hobby);min-height:80px;transition:font-size .1s}
+.holdbtn{width:100%;padding:28px;font-size:20px;border-radius:16px;background:var(--hobby);color:#fff;border:0;font-family:var(--display);font-weight:800;user-select:none;-webkit-user-select:none;touch-action:none}
+.shake{animation:shk .12s infinite}
+@keyframes shk{25%{transform:translate(calc(var(--s)*1px),calc(var(--s)*-1px))}50%{transform:translate(calc(var(--s)*-1px),calc(var(--s)*1px))}75%{transform:translate(calc(var(--s)*1px),calc(var(--s)*1px))}}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:50;width:100%;height:100%}
+.laugh{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;font-size:19px;line-height:1.5;min-height:80px}
+.after{border-top:1px solid var(--line);padding-top:20px;display:flex;flex-direction:column;gap:12px}
+@media (prefers-reduced-motion: reduce){.shake,.flames{animation:none}.board canvas{transition:none}}
+.toon{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%);z-index:40;width:min(360px,calc(100% - 32px));background:var(--surface);border:2px solid var(--fg);border-radius:18px;padding:12px 14px;display:flex;gap:12px;align-items:center;box-shadow:0 10px 0 -4px var(--sign);animation:pop .35s cubic-bezier(.3,1.6,.6,1)}
+.toon svg{width:96px;height:96px;flex:none}
+.toon p{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.25}
+.toon small{display:block;font-family:var(--body);font-weight:500;font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:.05em;text-transform:uppercase}
+@keyframes pop{from{transform:translateX(-50%) scale(.4);opacity:0}}
+.toon.out{animation:popout .25s ease-in forwards}
+@keyframes popout{to{transform:translateX(-50%) translateY(30px) scale(.8);opacity:0}}
+.counter{font-family:var(--display);font-weight:800;font-variant-numeric:tabular-nums}
+.t-shake{animation:tshake .15s infinite;transform-origin:60px 70px}
+@keyframes tshake{25%{transform:rotate(-6deg)}75%{transform:rotate(6deg)}}
+.t-faint{animation:tfaint 1.2s ease-in forwards;transform-origin:60px 105px}
+@keyframes tfaint{0%,30%{transform:rotate(0)}60%{transform:rotate(-20deg)}100%{transform:rotate(90deg) translateX(10px)}}
+.t-drop{animation:tdrop .9s ease-in infinite}
+@keyframes tdrop{0%{transform:translateY(-40px);opacity:0}20%{opacity:1}70%,100%{transform:translateY(32px);opacity:1}}
+.t-bar{animation:tbar .5s .2s cubic-bezier(.3,1.5,.6,1) both;transform-origin:0 50%}
+@keyframes tbar{from{transform:scaleX(0)}}
+.t-shades{animation:tshades .6s .1s cubic-bezier(.3,1.5,.6,1) both}
+@keyframes tshades{from{transform:translateY(-60px)}}
+.t-bounce{animation:tbounce .5s ease-in-out infinite alternate;transform-origin:60px 100px}
+@keyframes tbounce{from{transform:translateY(0) scaleY(1)}to{transform:translateY(-18px) scaleY(1.05)}}
+.t-bub{animation:tbub 1.4s ease-out infinite}
+@keyframes tbub{from{transform:translateY(0);opacity:.9}to{transform:translateY(-40px);opacity:0}}
+.t-rain{animation:train .6s linear infinite}
+@keyframes train{from{transform:translateY(-6px);opacity:1}to{transform:translateY(22px);opacity:0}}
+.t-sun{animation:tsun 1.6s .6s ease-out both}
+@keyframes tsun{from{transform:translate(20px,20px);opacity:0}}
+.t-clap{animation:tclap .25s ease-in-out infinite alternate}
+@keyframes tclap{to{transform:translateX(8px)}}
+.t-clap2{animation:tclap2 .25s ease-in-out infinite alternate}
+@keyframes tclap2{to{transform:translateX(-8px)}}
+.t-blink{animation:tblink 2s infinite}
+@keyframes tblink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.sound{font-size:14px}
+.chat{display:flex;flex-direction:column;gap:10px;max-height:min(50vh,380px);min-height:160px;overflow-y:auto;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:14px}
+.msg{display:flex;gap:8px;align-items:flex-end;max-width:88%;animation:pop2 .3s cubic-bezier(.3,1.6,.6,1)}
+.msg .txt{padding:10px 14px;border-radius:16px;line-height:1.4;overflow-wrap:anywhere}
+.msg.me{align-self:flex-end}
+.msg.me .txt{background:var(--hobby);color:#fff;border-bottom-right-radius:4px}
+.msg.pip .txt{background:var(--sign);color:var(--sign-ink);font-family:var(--display);font-weight:700;border-bottom-left-radius:4px}
+.pip-av{width:44px;height:44px;flex:none}.pip-av svg{width:100%;height:100%}
+.typing{display:flex;gap:4px;align-items:center;min-height:22px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--sign-ink);opacity:.5;animation:p .9s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes pop2{from{transform:scale(.6);opacity:0}}
+.chat-input{display:flex;gap:10px;align-items:flex-end}
+.chat-input textarea{flex:1;resize:none}
+.rage{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:-12px}
+.rage span{display:block;height:100%;width:0;background:linear-gradient(90deg,#F2C230,#F28C28,#E0412B);transition:width .4s}
+.pip-stage{display:flex;gap:14px;align-items:center;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:10px 14px}
+.pip-face{width:84px;height:84px;flex:none}.pip-face svg{width:100%;height:100%}
+.pip-say{font-family:var(--display);font-weight:700;font-size:18px;line-height:1.25}
+.own{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1.5px dashed var(--line);border-radius:14px;padding:14px}
+@media (prefers-reduced-motion: reduce){.msg,.typing i{animation:none}}
+.toon-layer{position:fixed;inset:0;pointer-events:none;z-index:45;overflow:hidden}
+.flytoon{position:absolute;left:0;top:0;line-height:1;will-change:transform;filter:drop-shadow(0 4px 0 rgba(0,0,0,.18))}
+@media (prefers-reduced-motion: reduce){.toon,.toon *{animation:none!important}}
+</style>
+<canvas id="confetti"></canvas>
+
+<header class="pc-bar"><a href="../index.html#pips-corner" data-back>← Pip's Corner</a></header>
+<div class="wrap" id="app"></div>
+<footer class="pc-foot">Made with 💛 by Umme Salma · Nothing you type here is saved or sent anywhere · <a href="../index.html#pips-corner" data-back>More games</a></footer>
+<script>document.querySelectorAll('[data-back]').forEach(a=>a.addEventListener('click',e=>{try{if(document.referrer&&new URL(document.referrer).origin===location.origin&&history.length>1){e.preventDefault();history.back();}}catch(err){}}));</script>
+
+
+<script>
+const SECTIONS = {
+  Learn:{c:"var(--learn)", d:"A skill or subject"},
+  Hobby:{c:"var(--hobby)", d:"Something just for fun"},
+  Earn:{c:"var(--earn)", d:"A side income or business"},
+  Recharge:{c:"var(--recharge)", d:"Rest from the noise"}
+};
+const STARTS = ["I'm bored","I feel stuck","I'm tired of the world","I want something new","I'm a student, what next?"];
+const QUESTIONS = [
+  {k:"mood", q:"How are you feeling right now?", opts:["Restless","Low on energy","Curious","Overwhelmed","Okay, just bored"]},
+  {k:"time", q:"How much free time do you have each week?", opts:["Under 2 hours","2–5 hours","5–10 hours","10+ hours"]},
+  {k:"budget", q:"What can you spend to get started?", opts:["Nothing","A little (under €50)","Some (under €300)","I can invest more"]},
+  {k:"likes", q:"What do you enjoy? Pick any.", multi:true, opts:["Creating things","People & talking","Tech & computers","Food & cooking","Nature & moving","Words & stories","Numbers & puzzles","Helping others"]},
+  {k:"style", q:"Do you prefer doing things alone or with others?", opts:["Alone","With a few people","In a group","Mix of both"]},
+  {k:"goal", q:"Which of these sounds best right now?", multi:true, opts:["Learn something","A new hobby","Earn some money","Just feel better"]},
+  {k:"about", q:"Tell me a bit about you.", text:true, hint:"Your background, culture, job or studies, where you live, anything you're good at."}
+];
+
+const app = document.getElementById("app");
+let state = {start:null, answers:{}, i:0, result:null};
+let ctl = null;
+
+function el(tag, attrs={}, ...kids){
+  const e = document.createElement(tag);
+  for (const [k,v] of Object.entries(attrs)){
+    if (k==="class") e.className=v; else if (k.startsWith("on")) e.addEventListener(k.slice(2),v);
+    else if (k==="style") e.style.cssText=v; else e.setAttribute(k,v);
+  }
+  for (const k of kids.flat()) if (k!=null) e.append(k.nodeType?k:document.createTextNode(k));
+  return e;
+}
+
+function home(){
+  app.replaceChildren(
+    el("span",{class:"sign"},"Let it out"),
+    el("h1",{},"Talk to Pip"),
+    el("p",{class:"lede"},"Bored, stuck or tired of it all? Pick one and let it out. Pip is here, and nothing you do is saved."),
+    el("div",{class:"tools"},
+      el("button",{class:"tool",onclick:scribble},el("b",{},"✏️ Scribble"),el("small",{},"Draw any mess, then crumple it")),
+      el("button",{class:"tool",onclick:vent},el("b",{},"💬 Vent box"),el("small",{},"Tell Pip everything, then burn it")),
+      el("button",{class:"tool",onclick:scream},el("b",{},"😱 Scream"),el("small",{},"Hold the button. Let go.")),
+      el("button",{class:"tool",onclick:laugh},el("b",{},"😂 Make me laugh"),el("small",{},"A joke or a silly challenge"))),
+    el("p",{class:"foot"},"Want ideas for what to do next? Try ",el("a",{href:"four-directions.html"},"Four directions for you"),".")
+  );
+}
+
+function ask(){
+  const Q = QUESTIONS[state.i];
+  let val = state.answers[Q.k] ?? (Q.multi?[]:"");
+  const next = el("button",{class:"btn",onclick:()=>{state.answers[Q.k]=val; if(state.i<QUESTIONS.length-1){state.i++;ask();} else results();}}, state.i<QUESTIONS.length-1?"Next":"Show my directions");
+  const update=()=>{ next.disabled = Q.text ? false : (Q.multi ? val.length===0 : !val); };
+  let body;
+  if (Q.text){
+    const ta = el("textarea",{id:"q-"+Q.k,rows:"4",placeholder:Q.hint});
+    ta.value = val; ta.addEventListener("input",()=>{val=ta.value;});
+    body = ta;
+  } else {
+    body = el("div",{class:"chips"}, Q.opts.map(o=>{
+      const b = el("button",{class:"chip","aria-pressed":String(Q.multi?val.includes(o):val===o)},o);
+      b.onclick=()=>{
+        if (Q.multi){ val = val.includes(o)?val.filter(x=>x!==o):[...val,o]; b.setAttribute("aria-pressed",String(val.includes(o))); }
+        else { val=o; body.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String(c===b))); }
+        update();
+      };
+      return b;
+    }));
+  }
+  update();
+  app.replaceChildren(
+    el("div",{class:"progress"}, QUESTIONS.map((_,j)=>el("span",{class:j<=state.i?"on":""}))),
+    el("span",{class:"step-label"},`Question ${state.i+1} of ${QUESTIONS.length}`),
+    el("h2",{},Q.q),
+    body,
+    el("div",{class:"row"},
+      el("button",{class:"btn ghost",onclick:()=>{state.answers[Q.k]=val; if(state.i>0){state.i--;ask();} else home();}},"Back"),
+      next)
+  );
+}
+
+
+
+function results(){ location.href="four-directions.html"; }
+
+function showError(msg, retry=true){
+  app.replaceChildren(
+    el("h2",{},"Hmm, that didn't work"),
+    el("p",{class:"status"},msg),
+    el("div",{class:"row"},
+      retry?el("button",{class:"btn",onclick:results},"Try again"):null,
+      el("button",{class:"btn ghost",onclick:home},"Start over"))
+  );
+}
+
+function showResult(){
+  const r = state.result;
+  app.replaceChildren(
+    el("span",{class:"sign"},"Your directions"),
+    el("h2",{},r.note||"Here are four ways forward."),
+    el("div",{class:"cards"}, r.items.map(it=>{
+      const s = SECTIONS[it.section] || SECTIONS.Learn;
+      return el("article",{class:"card",style:`--c:${s.c}`},
+        el("span",{class:"tag"},it.section||""),
+        el("h3",{},it.title||""),
+        el("p",{class:"why"},it.why||""),
+        el("div",{class:"first"},el("b",{},"Next 15 min"),el("span",{},it.first_step||"")));
+    })),
+    el("div",{class:"row"},
+      el("button",{class:"btn",onclick:results},"Give me other ideas"),
+      el("button",{class:"btn ghost",onclick:home},"Start over"))
+  );
+}
+
+
+/* ---------- Sound (made in the browser, no mic) ---------- */
+let AC=null, soundOn=true;
+function ac(){ try{ AC=AC||new (window.AudioContext||window.webkitAudioContext)(); if(AC.state==="suspended") AC.resume(); }catch(e){ AC=null; } return AC; }
+function boing(){
+  if(!soundOn||!ac()) return; const t=AC.currentTime, o=AC.createOscillator(), g=AC.createGain();
+  o.type="triangle"; o.frequency.setValueAtTime(220,t); o.frequency.exponentialRampToValueAtTime(880,t+.12); o.frequency.exponentialRampToValueAtTime(330,t+.3);
+  g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(.25,t+.02); g.gain.exponentialRampToValueAtTime(.0001,t+.35);
+  o.connect(g).connect(AC.destination); o.start(t); o.stop(t+.4);
+}
+/* Three funny scream voices, picked at random each time */
+function noiseBuf(){ const nb=AC.createBuffer(1,AC.sampleRate,AC.sampleRate), d=nb.getChannelData(0); for(let i=0;i<d.length;i++) d[i]=Math.random()*2-1; return nb; }
+function bonk(at){ const o=AC.createOscillator(), g=AC.createGain(); o.type="sine";
+  o.frequency.setValueAtTime(180,at); o.frequency.exponentialRampToValueAtTime(60,at+.18);
+  g.gain.setValueAtTime(.5,at); g.gain.exponentialRampToValueAtTime(.0001,at+.25); o.connect(g).connect(AC.destination); o.start(at); o.stop(at+.3); }
+const SCREAMS=[
+ {name:"Panicked goat", toons:["🐐","🐑","🐄","🐓","😱","🙀","🤪"], make(){
+   // bleating: buzzy voice chopped by a fast wobble, "MEH-EH-EH-EH"
+   const t=AC.currentTime, out=AC.createGain(); out.gain.setValueAtTime(.0001,t); out.gain.exponentialRampToValueAtTime(.4,t+.08); out.connect(AC.destination);
+   const trem=AC.createGain(); trem.gain.value=.55; trem.connect(out);
+   const f=AC.createBiquadFilter(); f.type="bandpass"; f.frequency.value=1100; f.Q.value=1.4; f.connect(trem);
+   const f2=AC.createBiquadFilter(); f2.type="peaking"; f2.frequency.value=2400; f2.gain.value=10; f2.connect(f);
+   const oscs=[0,14].map(d=>{const o=AC.createOscillator(); o.type="sawtooth"; o.frequency.setValueAtTime(420,t); o.frequency.exponentialRampToValueAtTime(560,t+3); o.detune.value=d; o.connect(f2); o.start(t); return o;});
+   const lfo=AC.createOscillator(), lg=AC.createGain(); lfo.type="square"; lfo.frequency.value=13; lg.gain.value=.45; lfo.connect(lg).connect(trem.gain); lfo.start(t);
+   const vib=AC.createOscillator(), vg=AC.createGain(); vib.frequency.value=13; vg.gain.value=25; vib.connect(vg); oscs.forEach(o=>vg.connect(o.frequency)); vib.start(t);
+   return { setLevel(n){ out.gain.setTargetAtTime(Math.min(.3+n/140,.6),AC.currentTime,.1); lfo.frequency.setTargetAtTime(13+n/12,AC.currentTime,.2); vib.frequency.setTargetAtTime(13+n/12,AC.currentTime,.2); },
+     stop(){ const e=AC.currentTime; oscs.forEach(o=>{o.frequency.cancelScheduledValues(e); o.frequency.setValueAtTime(o.frequency.value,e); o.frequency.exponentialRampToValueAtTime(200,e+.7); o.stop(e+.8);});
+       out.gain.cancelScheduledValues(e); out.gain.setValueAtTime(out.gain.value,e); out.gain.exponentialRampToValueAtTime(.0001,e+.75); lfo.stop(e+.8); vib.stop(e+.8); } }; }},
+ {name:"Cartoon falling off a cliff", toons:["🦆","👻","🐸","🙉","🤯","🥴","🐙"], make(){
+   // slide whistle: goes up and up while you hold, then "wheeeooo... BONK" when you let go
+   const t=AC.currentTime, out=AC.createGain(); out.gain.setValueAtTime(.0001,t); out.gain.exponentialRampToValueAtTime(.35,t+.05); out.connect(AC.destination);
+   const o=AC.createOscillator(); o.type="triangle"; o.frequency.setValueAtTime(500,t); o.frequency.exponentialRampToValueAtTime(1900,t+4);
+   const o2=AC.createOscillator(); o2.type="sine"; o2.frequency.setValueAtTime(1000,t); o2.frequency.exponentialRampToValueAtTime(3800,t+4);
+   const g2=AC.createGain(); g2.gain.value=.25; o.connect(out); o2.connect(g2).connect(out);
+   const vib=AC.createOscillator(), vg=AC.createGain(); vib.frequency.value=7; vg.gain.setValueAtTime(10,t); vg.gain.linearRampToValueAtTime(60,t+3); vib.connect(vg); vg.connect(o.frequency); vg.connect(o2.frequency); vib.start(t);
+   const ns=AC.createBufferSource(); ns.buffer=noiseBuf(); ns.loop=true; const nf=AC.createBiquadFilter(); nf.type="highpass"; nf.frequency.value=3000; const ng=AC.createGain(); ng.gain.value=.04; ns.connect(nf).connect(ng).connect(out); ns.start(t);
+   o.start(t); o2.start(t);
+   return { setLevel(n){ out.gain.setTargetAtTime(Math.min(.3+n/160,.55),AC.currentTime,.1); },
+     stop(){ const e=AC.currentTime; [o,o2].forEach((x,i)=>{x.frequency.cancelScheduledValues(e); x.frequency.setValueAtTime(x.frequency.value,e); x.frequency.exponentialRampToValueAtTime(i?240:120,e+1.1); x.stop(e+1.15);});
+       out.gain.cancelScheduledValues(e); out.gain.setValueAtTime(out.gain.value,e); out.gain.setValueAtTime(out.gain.value,e+.9); out.gain.exponentialRampToValueAtTime(.0001,e+1.12); vib.stop(e+1.15); ns.stop(e+1.15); bonk(e+1.15); } }; }},
+ {name:"Chipmunk on espresso", toons:["🐿️","🐹","🐭","🐰","😵","🤪","☕"], make(){
+   // tiny squeaky voice jumping around: "ee-ee-EE-ah-EEE!"
+   const t=AC.currentTime, out=AC.createGain(); out.gain.setValueAtTime(.0001,t); out.gain.exponentialRampToValueAtTime(.28,t+.03); out.connect(AC.destination);
+   const gate=AC.createGain(); gate.gain.value=1; gate.connect(out);
+   const f=AC.createBiquadFilter(); f.type="lowpass"; f.frequency.value=4500; f.connect(gate);
+   const o=AC.createOscillator(); o.type="square"; o.frequency.setValueAtTime(1100,t); o.connect(f); o.start(t);
+   const o2=AC.createOscillator(); o2.type="triangle"; o2.frequency.setValueAtTime(2200,t); const g2=AC.createGain(); g2.gain.value=.4; o2.connect(g2).connect(f); o2.start(t);
+   let level=0, alive=true;
+   const hop=()=>{ if(!alive) return; const e=AC.currentTime, base=900+level*12+Math.random()*700;
+     o.frequency.setValueAtTime(base,e); o.frequency.exponentialRampToValueAtTime(base*(1.25+Math.random()*.4),e+.08);
+     o2.frequency.setValueAtTime(base*2,e); o2.frequency.exponentialRampToValueAtTime(base*2.6,e+.08);
+     gate.gain.setValueAtTime(1,e); gate.gain.setValueAtTime(.08,e+.075); gate.gain.setValueAtTime(1,e+.095);
+     setTimeout(hop,70+Math.random()*60); };
+   hop();
+   return { setLevel(n){ level=Math.min(n,80); out.gain.setTargetAtTime(Math.min(.22+n/200,.4),AC.currentTime,.1); },
+     stop(){ alive=false; const e=AC.currentTime; gate.gain.cancelScheduledValues(e); gate.gain.setValueAtTime(1,e);
+       [o,o2].forEach((x,i)=>{x.frequency.cancelScheduledValues(e); x.frequency.setValueAtTime(i?3000:1500,e); x.frequency.exponentialRampToValueAtTime(i?8000:4000,e+.25); x.stop(e+.32);});
+       out.gain.cancelScheduledValues(e); out.gain.setValueAtTime(out.gain.value,e); out.gain.exponentialRampToValueAtTime(.0001,e+.3); } }; }}
+];
+let lastScream=-1;
+function pickScream(){ let i; do{ i=Math.random()*SCREAMS.length|0; }while(i===lastScream && SCREAMS.length>1); lastScream=i; return SCREAMS[i]; }
+function screamVoice(type){
+  if(!soundOn||!ac()) return null;
+  try{ return type.make(); }catch(e){ return null; }
+}
+
+/* ---------- Flying and falling cartoons ---------- */
+const toons=[]; let toonLayer=null, toonRAF=0;
+function toonLoop(){
+  const W=innerWidth, H=innerHeight;
+  for(let i=toons.length-1;i>=0;i--){ const c=toons[i]; c.t++;
+    c.vy+=c.g; c.x+=c.vx+(c.fly?Math.sin(c.t/8+c.ph)*2.2:0); c.y+=c.vy; c.r+=c.vr;
+    const sq=c.fly?1+Math.sin(c.t/4)*.12:1;
+    c.el.style.transform=`translate(${c.x}px,${c.y}px) rotate(${c.r}deg) scale(${sq*c.sc},${c.sc/sq})`;
+    if(c.y>H+120||c.x<-200||c.x>W+200||(c.y<-260&&c.vy<0&&c.t>60)){ c.el.remove(); toons.splice(i,1); } }
+  toonRAF=toons.length?requestAnimationFrame(toonLoop):0;
+}
+function spawnToon(set, mode){
+  if(reduce) return;
+  if(!toonLayer||!toonLayer.isConnected){ toonLayer=el("div",{class:"toon-layer","aria-hidden":"true"}); document.body.append(toonLayer); }
+  if(toons.length>45) return;
+  const W=innerWidth, H=innerHeight, e=el("span",{class:"flytoon"},set[Math.random()*set.length|0]);
+  const sz=36+Math.random()*48; e.style.fontSize=sz+"px"; toonLayer.append(e);
+  let c={el:e,t:0,ph:Math.random()*6,sc:1,r:Math.random()*40-20,vr:(Math.random()-.5)*12};
+  const m = mode || ["fly","toss","fall"][Math.random()*3|0];
+  if(m==="fly"){ const left=Math.random()<.5; Object.assign(c,{fly:true,x:left?-80:W+20,y:Math.random()*H*.6,vx:(left?1:-1)*(2+Math.random()*3),vy:-1+Math.random()*2,g:.02,vr:(Math.random()-.5)*4}); if(!left) e.style.scale="-1 1"; }
+  else if(m==="toss"){ Object.assign(c,{x:Math.random()*W,y:H+20,vx:(Math.random()-.5)*8,vy:-(13+Math.random()*9),g:.32}); }
+  else { Object.assign(c,{x:Math.random()*(W-60),y:-100,vx:(Math.random()-.5)*3,vy:2+Math.random()*3,g:.35}); }
+  toons.push(c); if(!toonRAF) toonRAF=requestAnimationFrame(toonLoop);
+}
+function dropAllToons(set, extra){
+  toons.forEach(c=>{ c.fly=false; c.g=.6; c.vy=Math.max(c.vy,-4); c.vr*=2; });
+  for(let i=0;i<extra;i++) setTimeout(()=>spawnToon(set,"fall"),i*70);
+}
+
+function soundToggle(){
+  const b=el("button",{class:"chip sound","aria-pressed":String(soundOn)},soundOn?"Sound on":"Sound off");
+  b.onclick=()=>{soundOn=!soundOn; b.textContent=soundOn?"Sound on":"Sound off"; b.setAttribute("aria-pressed",String(soundOn));};
+  return b;
+}
+
+/* ---------- Pip the cartoon ---------- */
+const OUT='stroke="#1B1E2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"';
+const body=(mouth,eyes)=>`<path d="M20 100 Q14 40 60 32 Q106 40 100 100 Z" fill="#F2C230" ${OUT}/>
+  <g class="t-blink" style="transform-origin:60px 62px">${eyes||`<circle cx="46" cy="62" r="5" fill="#1B1E2B"/><circle cx="74" cy="62" r="5" fill="#1B1E2B"/>`}</g>${mouth}`;
+const TOONS={
+ ears:{lines:["Pip covered his ears. He's only three seconds old!","Pip's ears need a short break.","Pip heard that one from across the street."],
+  svg:`<g class="t-shake">${body('<ellipse cx="60" cy="84" rx="9" ry="7" fill="#1B1E2B"/>','<path d="M40 60 l10 4 M80 60 l-10 4" '+OUT+'/>')}<circle cx="20" cy="62" r="10" fill="#F2C230" ${OUT}/><circle cx="100" cy="62" r="10" fill="#F2C230" ${OUT}/></g>`},
+ faint:{lines:["Pip fainted. Very dramatic, as always.","Pip has left the chat. Briefly.","Pip needs a glass of water after that one."],
+  svg:`<g class="t-faint">${body('<path d="M50 86 q10 -6 20 0" fill="none" '+OUT+'/>','<path d="M41 57 l10 10 M51 57 l-10 10 M69 57 l10 10 M79 57 l-10 10" '+OUT+'/>')}</g>`},
+ jar:{lines:["€1 into the swear jar. Pip is saving for a holiday.","Swear jar update: Pip can now afford a coffee.","Ka-ching! The swear jar thanks you."],
+  svg:`<rect x="30" y="50" width="60" height="60" rx="10" fill="#BFE3F2" fill-opacity=".6" ${OUT}/><rect x="36" y="40" width="48" height="12" rx="3" fill="#7A5AD6" ${OUT}/><text x="60" y="92" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="14" fill="#1B1E2B">SWEAR</text><g class="t-drop"><circle cx="60" cy="40" r="9" fill="#F2C230" ${OUT}/><text x="60" y="44" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="10" fill="#1B1E2B">€</text></g>`},
+ bleep:{lines:["Our lawyers asked us to put this here.","Bleeped by the Department of Good Manners.","Pip's mum is listening. Bleep."],
+  svg:`${body('<path d="M48 84 h24" '+OUT+'/>')}<g class="t-bar"><rect x="18" y="52" width="84" height="22" rx="3" fill="#1B1E2B"/><text x="60" y="68" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="13" fill="#F2C230">BEEEP</text></g>`},
+ shades:{lines:["Pip: Respect. That one had style.","Pip gives that one 10 out of 10.","Pip has never been cooler than right now."],
+  svg:`${body('<path d="M48 82 q12 10 24 0" fill="none" '+OUT+'/>')}<g class="t-shades"><path d="M34 56 h52" ${OUT}/><rect x="36" y="54" width="20" height="13" rx="4" fill="#1B1E2B"/><rect x="64" y="54" width="20" height="13" rx="4" fill="#1B1E2B"/></g>`},
+ soap:{lines:["Soap delivery! Just kidding. Keep going.","The soap is only visiting. Your words are safe.","Pip brought soap, then changed his mind."],
+  svg:`<g class="t-bounce"><rect x="28" y="62" width="64" height="38" rx="12" fill="#F7A8C6" ${OUT}/><text x="60" y="86" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="12" fill="#1B1E2B">SOAP</text></g><circle class="t-bub" cx="40" cy="52" r="7" fill="none" stroke="#2F6FDB" stroke-width="2"/><circle class="t-bub" style="animation-delay:.5s" cx="70" cy="48" r="5" fill="none" stroke="#2F6FDB" stroke-width="2"/><circle class="t-bub" style="animation-delay:.9s" cx="86" cy="56" r="4" fill="none" stroke="#2F6FDB" stroke-width="2"/>`},
+ rain:{lines:["Let it rain. Sunshine is on the way.","Small storm cloud. It will pass.","Pip says: rain first, rainbow later."],
+  svg:`<g class="t-sun"><circle cx="88" cy="34" r="14" fill="#F2C230" ${OUT}/></g><path d="M24 64 q0 -18 18 -16 q6 -18 26 -12 q18 -4 22 14 q14 2 12 14 z" fill="#C9CCD8" ${OUT}/><path d="M50 58 q4 -4 8 0 M66 58 q4 -4 8 0" fill="none" ${OUT}/><g fill="#2F6FDB"><circle class="t-rain" cx="40" cy="78" r="3"/><circle class="t-rain" style="animation-delay:.2s" cx="58" cy="80" r="3"/><circle class="t-rain" style="animation-delay:.4s" cx="76" cy="78" r="3"/></g>`},
+ clap:{lines:["Bravo! Very strong delivery.","Pip is clapping. That felt good, right?","Standing ovation from Pip."],
+  svg:`${body('<path d="M46 80 q14 14 28 0 z" fill="#1B1E2B"/>')}<g class="t-clap"><ellipse cx="40" cy="98" rx="9" ry="7" fill="#F2C230" ${OUT}/></g><g class="t-clap2"><ellipse cx="80" cy="98" rx="9" ry="7" fill="#F2C230" ${OUT}/></g>`}
+};
+const MILESTONES={5:"Five swears! Warming up nicely.",10:"Ten! Pip is impressed and a bit scared.",20:"Twenty! You are a professional now.",50:"Fifty?! Pip is calling his lawyer."};
+let toonTimer=null;
+function showToon(count){
+  document.querySelector(".toon")?.remove(); clearTimeout(toonTimer);
+  const keys=Object.keys(TOONS), k=keys[Math.random()*keys.length|0], T=TOONS[k];
+  const line=MILESTONES[count]||T.lines[Math.random()*T.lines.length|0];
+  const box=el("div",{class:"toon",role:"status"});
+  box.innerHTML=`<svg viewBox="0 0 120 120" aria-hidden="true">${T.svg}</svg>`;
+  const p=el("p",{},line,el("small",{},`Swears so far: ${count}`)); box.append(p);
+  document.body.append(box); boing();
+  toonTimer=setTimeout(()=>{box.classList.add("out");setTimeout(()=>box.remove(),260);},3200);
+}
+const SWEAR=/\b(f+u+c*k+\w*|fck\w*|f\*+k\w*|wtf|shit\w*|bullshit|damn\w*|bitch\w*|bastard\w*|crap\w*|asshole\w*|ass|arse\w*|hell|piss\w*|bloody|dick\w*|scheiß\w*|scheiss\w*|verdammt\w*|arschloch\w*|kacke)\b/gi;
+
+/* ---------- Right-now tools ---------- */
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function after(q){
+  return el("div",{class:"after"},
+    el("h2",{},q||"Feel a bit better?"),
+    el("div",{class:"row"},
+      el("a",{class:"btn",href:"four-directions.html",style:"text-decoration:none"},"Get ideas for what's next"),
+      el("button",{class:"btn ghost",onclick:home},"Back to start")));
+}
+
+function scribble(){
+  const colors=["#1B1E2B","#2F6FDB","#D2457A","#1E8C5A","#F2C230","#7A5AD6","#F28C28"];
+  let color=colors[1], size=6;
+  const cv=el("canvas"), board=el("div",{class:"board"},cv);
+  const sw=el("div",{class:"row"},colors.map(c=>{
+    const b=el("button",{class:"swatch","aria-label":"Color "+c,"aria-pressed":String(c===color),style:`background:${c}`});
+    b.onclick=()=>{color=c;sw.querySelectorAll(".swatch").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));};
+    return b;}),
+    el("button",{class:"chip",onclick:()=>{color="rand";sw.querySelectorAll(".swatch").forEach(x=>x.setAttribute("aria-pressed","false"));}},"Rainbow"),
+    el("button",{class:"chip",onclick:()=>{size=size===6?18:6;}},"Thick / thin"));
+  app.replaceChildren(
+    el("span",{class:"sign"},"Scribble"),
+    el("h2",{},"Draw anything. Messy is fine."),
+    sw, board,
+    el("div",{class:"row"},
+      el("button",{class:"btn",onclick:()=>{board.classList.add("crumple");setTimeout(()=>{ctx.clearRect(0,0,cv.width,cv.height);board.classList.remove("crumple");},reduce?0:650);}},"Crumple it"),
+      el("button",{class:"btn ghost",onclick:home},"Back")),
+    after("Feel lighter?"));
+  const ctx=cv.getContext("2d"), dpr=devicePixelRatio||1;
+  const r=cv.getBoundingClientRect(); cv.width=r.width*dpr; cv.height=r.height*dpr; ctx.scale(dpr,dpr);
+  ctx.lineCap="round"; ctx.lineJoin="round";
+  let last=null, hue=0;
+  const pos=e=>{const b=cv.getBoundingClientRect();return [e.clientX-b.left,e.clientY-b.top];};
+  cv.addEventListener("pointerdown",e=>{cv.setPointerCapture(e.pointerId);last=pos(e);});
+  cv.addEventListener("pointermove",e=>{
+    if(!last) return; const p=pos(e);
+    ctx.strokeStyle = color==="rand" ? `hsl(${hue=(hue+6)%360} 80% 55%)` : color;
+    ctx.lineWidth=size; ctx.beginPath(); ctx.moveTo(...last); ctx.lineTo(...p); ctx.stroke(); last=p;});
+  ["pointerup","pointercancel","pointerleave"].forEach(t=>cv.addEventListener(t,()=>{last=null;}));
+}
+
+/* ---------- Vent box: chat with Pip ---------- */
+const PIP={
+ first:["Oh my god. WHY?!","Excuse me?! I literally just got here!","Wow. Hello to you too."],
+ warm:["Again?! Okay... say something more.","Hmm. Is that all you've got?","I'm writing this down. For science."],
+ hot:["Okay, now we're talking. Who made you this angry?","My grandma swears harder than that. Come on.","Bigger letters, please. I can't hear you."],
+ fire:["You're on fire! I'm hiding behind the sofa.","That one made my eyebrows fall off.","The swear jar is full. I'm buying a second jar."],
+ legend:["Professional level. Should I call you Captain?","I've lost count. Kidding, it's {T}.","Okay legend, one more. Make it a creative one."],
+ you:["Me?! I'm only three seconds old!","Rude! ...but fair. Continue.","Why me? I'm just a yellow blob!","I'm telling my mum."],
+ shout:["WHY ARE WE SHOUTING? ...I kind of like it.","My ears! Okay, okay, keep going.","CAPS LOCK MODE ACTIVATED. Respect."],
+ sorry:["Don't be sorry. This is the swear zone.","Apology rejected. Swear again, it's good for you."],
+ clean:["That's it? No swearing? I'm almost disappointed.","Mm-hm. And how does that make you feel? Swearing allowed.","Tell me more. Who annoyed you today?","Okay. Now say it the way you REALLY want to."],
+ ask:["Good question. I'm a blob, I don't know. Swear about it.","I'll answer that after you swear one more time."],
+ same:["You said that already. Be creative!","Copy-paste anger? I expected more from you."],
+ better:["Look at you! Lighter already. Want to burn it all now?","Pip is proud of you. Press Burn it and watch it go up in flames."],
+ dare:["Dare: swear without swearing. Try \"you absolute soggy potato\".","Dare: write the name of the thing that annoys you most, in CAPITALS.","Dare: three swears in one sentence. Go.","Dare: insult Monday. Monday deserves it."],
+ creative:["Ha! Soggy potato. That's poetry.","Creative! I'm framing that one."]
+};
+const pick=a=>a[Math.random()*a.length|0];
+function pipReply(text,total,added,last){
+  const t=text.trim(), low=t.toLowerCase(), letters=t.replace(/[^a-zA-ZäöüÄÖÜß]/g,"");
+  const caps=letters.length>4 && letters===letters.toUpperCase();
+  if(MILESTONES[total] && added) return [MILESTONES[total],"jar"];
+  if(added && total===added) return [pick(PIP.first),"ears"];
+  if(added && total<=3) return [pick(PIP.warm),"bleep"];
+  if(last && low===last) return [pick(PIP.same),"shades"];
+  if(/\b(potato|biscuit|banana|muppet|noodle|pickle|walnut|sausage)\b/i.test(t)) return [pick(PIP.creative),"clap"];
+  if(/\b(sorry|entschuldigung|sry)\b/i.test(t)) return [pick(PIP.sorry),"soap"];
+  if(/\b(better|calm|relieved|done|thanks|thank you|danke)\b/i.test(t) && !added) return [pick(PIP.better),"clap"];
+  if(caps) return [pick(PIP.shout),"ears"];
+  if(added && /\b(you|u|du|dich)\b/i.test(t) && Math.random()<.6) return [pick(PIP.you),"faint"];
+  if(!added) return t.endsWith("?")?[pick(PIP.ask),"rain"]:[pick(PIP.clean),"rain"];
+  const tier = total<=1?["first","ears"]:total<=3?["warm","bleep"]:total<=7?["hot","shades"]:total<=15?["fire","faint"]:["legend","clap"];
+  return [pick(PIP[tier[0]]).replace("{T}",total),tier[1]];
+}
+function vent(){
+  const log=el("div",{class:"chat",role:"log","aria-live":"polite"});
+  const ta=el("textarea",{id:"vent-text",rows:"2",placeholder:"Type it all out. Swear as much as you want. Nothing is saved."});
+  const send=el("button",{class:"btn"},"Send");
+  const input=el("div",{class:"chat-input"},ta,send);
+  const zone=el("div",{class:"burnzone"},log);
+  let total=0, last="", busy=false, msgs=0;
+  const counter=el("span",{class:"step-label"},"Swear-o-meter: ",el("span",{class:"counter"},"0"));
+  const meter=el("div",{class:"rage"},el("span"));
+  const rageName=el("span",{class:"step-label"},"Mood: calm-ish");
+  const RAGE=[[0,"calm-ish"],[1,"mild grump"],[4,"spicy"],[8,"volcano"],[16,"legendary dragon"]];
+  const bubble=(who,text,toon)=>{
+    const b=el("div",{class:"msg "+who});
+    if(who==="pip"){ const av=el("div",{class:"pip-av","aria-hidden":"true"}); av.innerHTML=`<svg viewBox="0 0 120 120">${TOONS[toon||"clap"].svg}</svg>`; b.append(av); }
+    b.append(el("div",{class:"txt"},text)); log.append(b); log.scrollTop=log.scrollHeight; return b; };
+  const pipSay=(text,toon,delay)=>{ busy=true;
+    const typing=el("div",{class:"msg pip"},el("div",{class:"txt typing"},el("i"),el("i"),el("i"))); log.append(typing); log.scrollTop=log.scrollHeight;
+    setTimeout(()=>{ typing.remove(); bubble("pip",text,toon); ac(); boing(); busy=false; },reduce?100:delay); };
+  const submit=(forced)=>{
+    const text=(forced??ta.value).trim(); if(!text||busy) return;
+    ta.value=""; bubble("me",text); msgs++;
+    const added=(text.match(SWEAR)||[]).length; total+=added;
+    counter.lastChild.textContent=total;
+    meter.firstChild.style.width=Math.min(100,total*6)+"%";
+    rageName.textContent="Mood: "+RAGE.filter(r=>total>=r[0]).pop()[1];
+    let [line,toon]= forced==="Dare me" ? [pick(PIP.dare),"shades"] : pipReply(text,total,added,last);
+    last=text.toLowerCase();
+    pipSay(line,toon,600+Math.min(line.length*12,900));
+    ta.focus(); };
+  send.onclick=()=>submit();
+  ta.addEventListener("keydown",e=>{ if(e.key==="Enter"&&!e.shiftKey){ e.preventDefault(); submit(); } });
+  const quick=el("div",{class:"chips"},["I'm so angry","Dare me","I feel better"].map(q=>el("button",{class:"chip",onclick:()=>submit(q)},q)));
+  const burn=el("button",{class:"btn",onclick:()=>{
+    const t=[...log.querySelectorAll(".msg.me .txt")].map(x=>x.textContent).join("  ");
+    if(!t) return;
+    const out=el("div",{class:"laugh"});
+    [...t].slice(0,600).forEach((c,i)=>{out.append(el("span",{class:"ch",style:`--r:${(Math.random()*120-60)|0}deg;animation-delay:${Math.min(i*12,900)}ms`},c));});
+    zone.replaceChildren(el("div",{class:"flames"}),out);
+    burn.disabled=true;
+    setTimeout(()=>{ log.replaceChildren(); zone.replaceChildren(log); burn.disabled=false; total=0; last="";
+      counter.lastChild.textContent="0"; meter.firstChild.style.width="0"; rageName.textContent="Mood: calm-ish";
+      pipSay("Gone. Burned to ashes. Feel lighter? Round two whenever you want.","shades",500); },reduce?300:2600);
+  }},"Burn it");
+  app.replaceChildren(
+    el("span",{class:"sign"},"Vent box"),
+    el("h2",{},"Say what you really want to say. Pip will answer."),
+    el("div",{class:"row"},counter,rageName,soundToggle()),
+    meter,
+    zone, input, quick,
+    el("div",{class:"row"},burn,el("button",{class:"btn ghost",onclick:home},"Back")),
+    after("Feel lighter?"));
+  pipSay("Hi, I'm Pip. Go on, let it all out. I can take it. Probably.","clap",400);
+  ta.focus();
+}
+
+/* ---------- Scream: Pip reacts + record your own ---------- */
+const PIPFACE={
+ idle:{svg:()=>TOONS.clap.svg.replace(/class="t-clap2?"/g,""),line:"Go on. I'm ready. I think."},
+ worried:{svg:()=>`<g>${body('<ellipse cx="60" cy="84" rx="6" ry="5" fill="#1B1E2B"/>','<circle cx="46" cy="62" r="7" fill="#fff" '+OUT+'/><circle cx="74" cy="62" r="7" fill="#fff" '+OUT+'/><circle cx="46" cy="63" r="3" fill="#1B1E2B"/><circle cx="74" cy="63" r="3" fill="#1B1E2B"/>')}</g>`,line:"Oh no. Oh no no no."},
+ ears:{svg:()=>TOONS.ears.svg,line:"MY EARS!"},
+ blown:{svg:()=>`<g class="t-shake">${body('<ellipse cx="60" cy="86" rx="14" ry="12" fill="#1B1E2B"/>','<path d="M40 60 l10 4 M80 60 l-10 4" '+OUT+'/>')}<path d="M30 40 l-14 -10 M50 32 l-6 -16 M72 32 l6 -16 M90 40 l14 -10" ${OUT}/></g>`,line:"AAAAAH! I'm screaming too now!"}
+};
+const PIPEND=[[0,"faint","Pip fainted. Very dramatic."],[0,"shades","Pip: Respect. That one had style."],[0,"clap","Standing ovation from Pip."],[0,"ears","Pip will need new ears."]];
+let myScream=null, myFx="chipmunk";
+function ownVoice(){
+  if(!soundOn||!ac()||!myScream) return null;
+  const t=AC.currentTime, out=AC.createGain(); out.gain.setValueAtTime(.0001,t); out.gain.exponentialRampToValueAtTime(1,t+.03); out.connect(AC.destination);
+  const src=AC.createBufferSource(); src.buffer=myScream; src.loop=true;
+  const rate={chipmunk:1.8,monster:.6,echo:1,robot:1,normal:1}[myFx]; src.playbackRate.value=rate;
+  const extra=[]; let head=out;
+  if(myFx==="echo"){ const d=AC.createDelay(1); d.delayTime.value=.28; const fb=AC.createGain(); fb.gain.value=.5; d.connect(fb).connect(d); d.connect(out); src.connect(d); }
+  if(myFx==="robot"){ const rm=AC.createGain(); rm.gain.value=0; const o=AC.createOscillator(); o.frequency.value=55; o.connect(rm.gain); o.start(t); extra.push(o); rm.connect(out); head=rm; }
+  src.connect(head); src.start(t);
+  return { setLevel(n){ if(myFx!=="monster"&&myFx!=="robot") src.playbackRate.setTargetAtTime(rate*(1+Math.min(n,60)/200),AC.currentTime,.2); },
+    stop(){ const e=AC.currentTime; out.gain.cancelScheduledValues(e); out.gain.setValueAtTime(out.gain.value,e);
+      const tail=myFx==="echo"?1.6:.3; out.gain.exponentialRampToValueAtTime(.0001,e+tail); src.stop(e+tail+.05); extra.forEach(o=>o.stop(e+tail+.05)); } };
+}
+const OWN={name:"My own scream", toons:["😱","🤪","🙀","🤯","🎤","🦜","🐵"], make:ownVoice};
+function scream(){
+  const word=el("div",{class:"scream-word",style:"font-size:40px"},"Ready?");
+  const kind=el("span",{class:"step-label"},"Scream type: surprise!");
+  const btn=el("button",{class:"holdbtn"},"Hold to scream");
+  const face=el("div",{class:"pip-face","aria-hidden":"true"}), say=el("p",{class:"pip-say"});
+  const pip=el("div",{class:"pip-stage"},face,say);
+  let state="";
+  const setFace=(k,line,svg)=>{ if(state===k&&!line) return; state=line?k+"*":k; face.innerHTML=`<svg viewBox="0 0 120 120">${svg||PIPFACE[k].svg()}</svg>`; say.textContent=line||PIPFACE[k].line; };
+  setFace("idle");
+  let mode="surprise";
+  // record your own
+  const recBtn=el("button",{class:"btn"},"● Record (5 sec)");
+  const recInfo=el("span",{class:"foot"},"Scream, laugh or shout into your mic. It stays on your device.");
+  const fxRow=el("div",{class:"chips"},[["chipmunk","Chipmunk"],["monster","Monster"],["echo","Echo canyon"],["robot","Robot"],["normal","Just me"]].map(([k,l])=>{
+    const b=el("button",{class:"chip","aria-pressed":String(k===myFx)},l);
+    b.onclick=()=>{ myFx=k; fxRow.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String(c===b))); };
+    return b; }));
+  const ownBox=el("div",{class:"own"},el("div",{class:"row"},recBtn,recInfo),el("span",{class:"step-label"},"Make it funny"),fxRow);
+  ownBox.hidden=true;
+  let recording=false;
+  recBtn.onclick=async()=>{
+    if(recording) return;
+    if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder){ recInfo.textContent="Recording isn't possible here. It needs an https page or a file opened in Chrome or Edge on a computer. (no-media)"; return; }
+    let stream; try{ stream=await navigator.mediaDevices.getUserMedia({audio:true}); }
+    catch(e){ const why={NotAllowedError:"The mic is blocked. In the claude.ai preview it always is. On your own page, click the icon next to the web address and allow Microphone, then reload.",SecurityError:"This page isn't allowed to use the mic (preview or not https).",NotFoundError:"No microphone was found on this device.",NotReadableError:"Another app is using the microphone. Close it and try again."}[e&&e.name]||"The mic didn't start."; recInfo.textContent=why+" ("+((e&&e.name)||"error")+")"; return; }
+    ac(); recording=true; const chunks=[]; const mr=new MediaRecorder(stream);
+    mr.ondataavailable=e=>{ if(e.data.size) chunks.push(e.data); };
+    mr.onstop=async()=>{ stream.getTracks().forEach(t=>t.stop()); recording=false; recBtn.textContent="● Record again";
+      try{ const buf=await new Blob(chunks,{type:mr.mimeType}).arrayBuffer(); myScream=await new Promise((res,rej)=>AC.decodeAudioData(buf,res,rej));
+        recInfo.textContent="Got it! Now hold the big button."; setFace("worried","Was that YOU? Do it again, louder!"); }
+      catch(e){ recInfo.textContent="That recording didn't work. Try once more."; } };
+    mr.start(); let left=5; recBtn.textContent="Recording… 5";
+    const iv=setInterval(()=>{ left--; if(left<=0||mr.state!=="recording"){ clearInterval(iv); if(mr.state==="recording") mr.stop(); } else recBtn.textContent="Recording… "+left; },1000);
+    recBtn.onpointerup=null;
+  };
+  const modes=el("div",{class:"chips"},[["surprise","Surprise scream"],["own","My own scream"]].map(([k,l])=>{
+    const b=el("button",{class:"chip","aria-pressed":String(k===mode)},l);
+    b.onclick=()=>{ mode=k; modes.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String(c===b))); ownBox.hidden=k!=="own";
+      kind.textContent=k==="own"?"Scream type: you!":"Scream type: surprise!"; };
+    return b; }));
+  let n=0, timer=null, voice=null, type=null;
+  const start=e=>{ e.preventDefault(); if(timer) return; try{ if(e.pointerId!=null) btn.setPointerCapture(e.pointerId); }catch(_){}
+    if(mode==="own"&&!myScream){ recInfo.textContent="Record your scream first (button above)."; setFace("worried","Record something first, then I'll panic."); return; }
+    n=0; type=mode==="own"?OWN:pickScream(); voice=screamVoice(type);
+    kind.textContent="Scream type: "+type.name;
+    document.body.style.setProperty("--s",1); if(!reduce) document.body.classList.add("shake");
+    btn.textContent="AAAAAAH"; setFace("worried");
+    for(let i=0;i<3;i++) spawnToon(type.toons);
+    timer=setInterval(()=>{ n++; const s=Math.min(n,60);
+      word.textContent="A"+"A".repeat(Math.min(n,40))+"H"+"!".repeat(Math.floor(n/10));
+      word.style.fontSize=(40+s*1.6)+"px"; voice?.setLevel(n);
+      setFace(n>40?"blown":n>14?"ears":"worried");
+      if(n%Math.max(1,5-Math.floor(n/12))===0) spawnToon(type.toons);
+      document.body.style.setProperty("--s",Math.min(1+n/8,10));},60);};
+  const stop=()=>{ if(!timer) return; clearInterval(timer); timer=null; voice?.stop(); voice=null;
+    document.body.classList.remove("shake"); btn.textContent="Again!";
+    word.textContent = n>40?"Legendary scream.":n>15?"That's the stuff.":"Louder next time!";
+    const end = n>40?PIPEND[0]:n>15?pick(PIPEND.slice(1)):[0,"shades","That's it? I've heard louder sneezes."];
+    setFace("end-"+end[1],end[2],TOONS[end[1]].svg);
+    word.style.fontSize="40px"; confetti(Math.min(60+n*4,300)); dropAllToons(type.toons, Math.min(4+Math.floor(n/6),16)); };
+  btn.addEventListener("pointerdown",start);
+  ["pointerup","pointerleave","pointercancel"].forEach(t=>btn.addEventListener(t,stop));
+  btn.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter")start(e);});
+  btn.addEventListener("keyup",e=>{if(e.key===" "||e.key==="Enter")stop();});
+  app.replaceChildren(
+    el("span",{class:"sign"},"Scream"),
+    el("h2",{},"Hold the button as long as you need."),
+    el("div",{class:"row"},soundToggle(),el("span",{class:"foot"},"Turn your volume up. On iPhone, turn off silent mode.")),
+    modes, ownBox,
+    pip, kind, word, btn,
+    el("div",{class:"row"},el("button",{class:"btn ghost",onclick:home},"Back")),
+    after());
+}
+
+function confetti(count){
+  if(reduce) return;
+  const cv=document.getElementById("confetti"), ctx=cv.getContext("2d");
+  cv.width=innerWidth; cv.height=innerHeight;
+  const cols=["#F2C230","#D2457A","#2F6FDB","#1E8C5A","#7A5AD6","#F28C28"];
+  const ps=Array.from({length:count},()=>({x:innerWidth/2,y:innerHeight*0.6,vx:(Math.random()-.5)*16,vy:-Math.random()*18-6,s:Math.random()*8+4,c:cols[Math.random()*cols.length|0],r:Math.random()*6}));
+  let f=0;(function tick(){ ctx.clearRect(0,0,cv.width,cv.height);
+    ps.forEach(p=>{p.vy+=.5;p.x+=p.vx;p.y+=p.vy;p.r+=.2;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);ctx.restore();});
+    if(++f<120) requestAnimationFrame(tick); else ctx.clearRect(0,0,cv.width,cv.height);})();
+}
+
+const JOKES=["I told my computer I needed a break. It said: 'No problem, I'll go to sleep.'","Why don't eggs tell jokes? They'd crack each other up.","I'm reading a book about anti-gravity. It's impossible to put down.","Why did the scarecrow win an award? He was outstanding in his field.","Parallel lines have so much in common. It's a shame they'll never meet.","I tried to catch fog yesterday. Mist.","Why don't skeletons fight each other? They don't have the guts.","My plants and I have a deal: I forget to water them, they forget to grow.","I asked the librarian for books about paranoia. She whispered: 'They're right behind you.'","Why did the bicycle fall over? It was two-tired.","What do you call a sleeping dinosaur? A dino-snore.","My phone battery and I have the same energy level at 4 pm: 3%.","I only know 25 letters of the alphabet. I don't know y.","Why do bees have sticky hair? Because they use honeycombs.","What did the ocean say to the beach? Nothing, it just waved.","I used to hate facial hair, but then it grew on me.","Why can't you trust stairs? They're always up to something.","Pip tried to start a hot-air balloon business. It never took off."];
+const CHALLENGES=["Stand up and do your most dramatic slow-motion run to the kitchen and back.","Say the alphabet backwards. Out loud. With a fake opera voice.","Find something blue near you and give it a name and a backstory in 30 seconds.","Do 10 star jumps while saying 'I am a majestic starfish'.","Text a friend one single emoji and nothing else. See what happens.","Balance a spoon on your nose. Yes, really. Try for 60 seconds.","Narrate the next minute of your life like a nature documentary.","Make the silliest face you can and hold it for 10 seconds. Bonus: selfie.","Walk like a penguin to the nearest window and look outside like it's your first time seeing the world.","Write a 4-line poem about your left sock.","Speak only in questions for the next two minutes. Can you do it?","Dance to the next song you hear like nobody is watching. (Pip is. Pip approves.)"];
+let lastJ="";
+function laugh(){
+  const out=el("div",{class:"laugh"},"Pick one and I'll cheer you up.");
+  const go=kind=>{const pool=kind==="joke"?JOKES:CHALLENGES;let x;do{x=pick(pool);}while(x===lastJ&&pool.length>1);lastJ=x;out.textContent=x;try{boing();}catch(e){}if(kind==="joke"&&typeof confetti==="function")confetti(40);};
+  app.replaceChildren(
+    el("span",{class:"sign"},"Make me laugh"),
+    el("h2",{},"A little silliness, coming up."),
+    out,
+    el("div",{class:"row"},
+      el("button",{class:"btn",onclick:()=>go("joke")},"Tell me a joke"),
+      el("button",{class:"btn",onclick:()=>go("challenge")},"Give me a silly challenge"),
+      el("button",{class:"btn ghost",onclick:home},"Back")),
+    after());
+}
+
+home();
+</script>
+
+</body></html>
