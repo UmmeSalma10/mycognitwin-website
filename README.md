@@ -51,6 +51,8 @@ AI can feel big. This website makes the first step small. Visitors pick the sent
 
 ## ✨ Highlights
 
+<p align="center"><img src="screenshots/cognitive-twin.gif" width="360" alt="The cognitive twin animation from My story"><br><sub>The cognitive twin on My story: move over her human half and the dots build her AI twin.</sub></p>
+
 - 🌗 **Light and dark mode** with one click.
 - 🧠 **Interactive "cognitive twin" face** on My story, built from particles that react to your mouse.
 - 🎮 **10 built-in games** in Pip's Corner, each one small and self-contained.
