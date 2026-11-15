@@ -36,7 +36,7 @@ AI can feel big. This website makes the first step small. Visitors pick the sent
 - **AI Tools for Study & Work:** structured prompting with ChatGPT, Claude and Copilot.
 - **Career Launch in Tech:** for a first job, a career change or a move abroad.
 - **Hands-on AI Projects:** build a simple AI tool and finish with a portfolio project.
-- **AI-Native Testing:** quality engineering rebuilt for the AI era (agents, Playwright, evals, CI/CD).
+- **AI-Native Testing:** software testing rebuilt for the AI era (agents, Playwright, evals, CI/CD).
 - **1:1 Coaching** and **Workshops for schools & teams**, based on the AI hackathon programme I founded at Bauer Media Group.
 
 ## 📸 Screenshots
@@ -75,7 +75,7 @@ To try it yourself, download the project and open `index.html` in any browser.
 
 ## 👩‍💼 About me
 
-I'm **Umme Salma**, an AI literacy & career coach and Head of Quality Engineering with **15+ years in tech**. My path started with artificial intelligence: a master's thesis on machine learning, research on neural networks, and later a research role at a German university. Today I help people and teams work confidently with AI.
+I'm **Umme Salma**, an engineering and transformation leader and AI literacy & career coach with **15+ years in tech**. My path started with artificial intelligence: a master's thesis on machine learning, research on neural networks, and later a research role at a German university. Today I help people and teams work confidently with AI.
 
 [GitHub profile](https://github.com/UmmeSalma10) · [LinkedIn](https://www.linkedin.com/in/ummesalmaeiti)
 
