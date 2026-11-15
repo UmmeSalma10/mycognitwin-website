@@ -77,7 +77,7 @@ To try it yourself, download the project and open `index.html` in any browser.
 
 I'm **Umme Salma**, an engineering and transformation leader and AI literacy & career coach with **15+ years in tech**. My path started with artificial intelligence: a master's thesis on machine learning, research on neural networks, and later a research role at a German university. Today I help people and teams work confidently with AI.
 
-[GitHub profile](https://github.com/UmmeSalma10) · [LinkedIn](https://www.linkedin.com/in/ummesalmaeiti)
+[GitHub profile](https://github.com/UmmeSalma10) · [LinkedIn](https://www.linkedin.com/in/ummesalmaeiti) · [X](https://x.com/Umme100)
 
 ---
 
