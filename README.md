@@ -5,7 +5,7 @@
 **"Okay, now what next?"**
 A calm, clean website that helps students and professionals take their first step with AI,<br>and tells my own story from AI research to engineering leadership.
 
-🌐 **Live website:** [okaynowwhatnext.com](https://okaynowwhatnext.com) *(launching soon)*  ·  🎮 **Free games:** [Pip's Corner](https://ummesalma10.github.io/pips-corner/)
+🌐 **Live website:** [mycognitwin.com](https://mycognitwin.com/)  ·  🎮 **Free games:** [Pip's Corner](https://ummesalma10.github.io/pips-corner/)
 
 </div>
 
