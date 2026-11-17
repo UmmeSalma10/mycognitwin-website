@@ -64,7 +64,7 @@ AI can feel big. This website makes the first step small. Visitors pick the sent
 ## 📁 Project structure
 
 ```
-okaynowwhatnext-website/
+mycognitwin-website/
 ├── index.html      ← the whole website (all pages, styles and scripts)
 ├── images/         ← photos used on the site
 ├── tools/          ← the 10 Pip's Corner games, one file each
